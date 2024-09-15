@@ -4,26 +4,32 @@
     "version": "1.0",
     "description": "Scrape watched YouTube video titles and display them.",
     "permissions": [
-      "activeTab",
-      "storage",
-      "https://www.youtube.com/*"
+        "activeTab",
+        "storage",
+        "https://www.youtube.com/*"
     ],
     "background": {
-      "scripts": ["background.js"]
+        "scripts": [
+            "background.js"
+        ]
     },
     "browser_action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "icons/icon16.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
-      }
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
     },
     "content_scripts": [
-      {
-        "matches": ["https://www.youtube.com/watch*"],
-        "js": ["content.js"]
-      }
+        {
+            "matches": [
+                "*://www.youtube.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
     ]
-  }
-  
+}
