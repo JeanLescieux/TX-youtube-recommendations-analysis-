@@ -47,4 +47,4 @@ Si vous souhaitez contribuer au projet :
 
 ## License
 
-tbd
+- tbd
