@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watched YouTube Videos</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Watched Videos</h1>
-  <ul id="videoList"></ul>
+  <header>
+    <h1>Watched Videos</h1>
+  </header>
+
+  <!-- Section avec liste déroulante -->
+  <section class="dropdown-container">
+    <button id="toggleButton" class="dropdown-toggle">Show Watched Videos</button>
+    <div id="dropdownContent" class="dropdown-content hidden">
+      <ul id="videoList" class="video-list">
+        <!-- Les vidéos seront ajoutées ici dynamiquement -->
+      </ul>
+    </div>
+  </section>
 
   <script src="popup.js"></script>
 </body>

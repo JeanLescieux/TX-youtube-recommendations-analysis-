@@ -1,17 +1,121 @@
+/* Style global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 10px;
-  }
-  
-  h1 {
-    font-size: 18px;
-  }
-  
-  ul {
-    padding-left: 20px;
-  }
-  
-  li {
-    margin-bottom: 5px;
-  }
-  
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #ff0000;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+/* Dropdown style */
+.dropdown-container {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Bouton en forme de bulle */
+.dropdown-toggle {
+  background-color: #ff0000;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 50px; /* Forme de bulle */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-toggle:hover {
+  background-color: #cc0000;
+}
+
+.dropdown-content {
+  margin-top: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Style des éléments individuels de la vidéo */
+.video-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Forcer l'affichage en une seule colonne */
+.video-item {
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  display: block; /* On s'assure que chaque item prend la largeur complète */
+  width: 100%;
+}
+
+.video-item:last-child {
+  border-bottom: none;
+}
+
+.video-item:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+/* Supprimer l'affichage en colonnes par défaut */
+.video-list li {
+  display: block;
+  width: 100%; /* Forcer chaque élément à occuper toute la largeur du conteneur */
+  text-align: left;
+}
+
+.video-item {
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+}
+
+.video-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Limiter le titre à 40 caractères */
+.video-title {
+  white-space: nowrap;  /* Empêcher les sauts de ligne */
+  overflow: hidden;     /* Masquer le reste du texte */
+  text-overflow: ellipsis;  /* Ajouter des points de suspension si le texte est trop long */
+  max-width: 90%;  /* Limiter la largeur pour forcer la coupure du texte */
+  display: inline-block;
+}
+
+.video-item.expanded .video-title {
+  white-space: normal;  /* Permet de voir tout le titre lorsque l'élément est cliqué */
+  overflow: visible;
+  text-overflow: initial;
+}
