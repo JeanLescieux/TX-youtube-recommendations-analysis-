@@ -62,3 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.getElementById('scrapeHistoryButton').addEventListener('click', function () {
+  // Ouvrir la page d'historique de YouTube dans un nouvel onglet
+  browser.tabs.create({ url: 'https://www.youtube.com/feed/history' });
+});
