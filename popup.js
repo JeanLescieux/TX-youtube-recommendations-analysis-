@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
                   titleElement.classList.add('video-title');
                   titleElement.textContent = shortTitle;
 
+                  // Hide the details section initially
                   const detailsElement = document.createElement('div');
+                  detailsElement.classList.add('hidden');
                   detailsElement.innerHTML = `
                       <p>Channel: ${video.channel}</p>
                       <p>Views: ${video.views}</p>
@@ -35,12 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
                   listItem.appendChild(detailsElement);
                   videoList.appendChild(listItem);
 
+                  // Toggle the title and show/hide the additional details on click
                   listItem.addEventListener('click', function () {
                       if (listItem.classList.contains('expanded')) {
                           titleElement.textContent = shortTitle;
+                          detailsElement.classList.add('hidden');  // Hide details
                           listItem.classList.remove('expanded');
                       } else {
-                          titleElement.textContent = video.title;
+                          titleElement.textContent = video.title; // Show full title
+                          detailsElement.classList.remove('hidden');  // Show details
                           listItem.classList.add('expanded');
                       }
                   });
