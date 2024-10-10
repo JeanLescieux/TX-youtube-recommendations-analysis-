@@ -2,7 +2,7 @@
 let videoData = {};
 let currentVideoId = null;
 let watchTimeInterval = null;
-let channelObserver = null; // MutationObserver pour le nom de la chaîne
+let commentCheckInterval = null; // Intervalle pour vérifier les commentaires
 
 // Fonction pour remettre à zéro les données de la vidéo
 const resetVideoData = () => {
@@ -15,6 +15,7 @@ const resetVideoData = () => {
     watchTime: 0,
     commentCount: null
   };
+  console.log("Video data reset:", videoData);
 };
 
 // Fonction pour mettre à jour les informations de la vidéo
@@ -31,6 +32,8 @@ const updateVideoData = () => {
   videoData.channel = channelElement ? channelElement.innerText : null;
   videoData.channelURL = channelElement ? channelElement.href : null;
 
+  console.log("Video data updated:", videoData);
+
   // Démarrer le suivi du temps de visionnage si l'élément vidéo existe
   if (videoElement) {
     if (watchTimeInterval) {
@@ -39,6 +42,7 @@ const updateVideoData = () => {
 
     watchTimeInterval = setInterval(() => {
       videoData.watchTime = Math.round(videoElement.currentTime);
+      console.log("Current watch time updated:", videoData.watchTime);
     }, 1000); // Mise à jour chaque seconde
 
     // Observer l'événement play pour commencer le suivi
@@ -48,6 +52,7 @@ const updateVideoData = () => {
       }
       watchTimeInterval = setInterval(() => {
         videoData.watchTime = Math.round(videoElement.currentTime);
+        console.log("Current watch time during playback:", videoData.watchTime);
       }, 1000);
     });
   }
@@ -60,7 +65,15 @@ const updateVideoData = () => {
 const checkCommentCount = () => {
   const commentElement = document.querySelector('ytd-comments-header-renderer #count .count-text span');
   if (commentElement) {
-    videoData.commentCount = commentElement.innerText.trim().replace(/\s/g, '');
+    const newCommentCount = commentElement.innerText.trim().replace(/\s/g, '');
+    if (videoData.commentCount !== newCommentCount) {
+      videoData.commentCount = newCommentCount;
+      console.log("Comment count updated:", videoData.commentCount);
+    } else {
+      console.log("No change in comment count:", videoData.commentCount);
+    }
+  } else {
+    console.log("Comment element not found yet.");
   }
 };
 
@@ -116,8 +129,24 @@ const observeVideoChanges = () => {
 
     // S'assurer que les données sont envoyées lors de la fermeture de la page
     window.addEventListener('beforeunload', sendVideoData);
+
+    // Démarrer le contrôle des commentaires
+    commentCheckInterval = setInterval(checkCommentCount, 1000); // Vérifier toutes les secondes
   } else {
     setTimeout(observeVideoChanges, 1000);
+  }
+};
+
+// Fonction pour observer le changement de nom de la chaîne
+const observeChannelName = () => {
+  const channelElement = document.querySelector('#channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
+  if (channelElement) {
+    const observer = new MutationObserver(() => {
+      videoData.channel = channelElement.innerText;
+      videoData.channelURL = channelElement.href;
+      console.log("Channel name updated:", videoData.channel);
+    });
+    observer.observe(channelElement, { childList: true, subtree: true });
   }
 };
 
