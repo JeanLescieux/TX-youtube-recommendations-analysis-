@@ -3,7 +3,7 @@ console.log('popup.js est bien chargé');
 document.addEventListener('DOMContentLoaded', function() {
   const videoList = document.getElementById('videoList');
   const analysisButton = document.getElementById('analysisButton');
-  
+
   // Fonction pour charger et afficher les vidéos
   function loadAndDisplayVideos() {
       browser.storage.local.get({ watchedVideos: [] }).then(function (result) {
@@ -13,25 +13,41 @@ document.addEventListener('DOMContentLoaded', function() {
           videoList.innerHTML = ''; // Nettoyer la liste existante
 
           if (watchedVideos.length > 0) {
-              watchedVideos.forEach(function (title) {
+              watchedVideos.forEach(function (video) {
                   const listItem = document.createElement('li');
                   listItem.classList.add('video-item');
 
-                  let shortTitle = title.length > 40 ? title.substring(0, 40) + "..." : title;
+                  let shortTitle = video.title.length > 40 ? video.title.substring(0, 40) + "..." : video.title;
 
                   const titleElement = document.createElement('span');
                   titleElement.classList.add('video-title');
                   titleElement.textContent = shortTitle;
 
+                  // Hide the details section initially
+                  const detailsElement = document.createElement('div');
+                  detailsElement.classList.add('hidden');
+                  detailsElement.innerHTML = `
+                      <p>Channel: ${video.channel}</p>
+                      <p>Views: ${video.views}</p>
+                      <p>Comments: ${video.comments}</p>
+                      <p>Watch Time: ${video.watchTime} seconds</p>
+                      <p>Video URL: ${video.videoURL}</p> <!-- Affiche l'URL brute de la vidéo -->
+                      <p>Channel URL: ${video.channelURL}</p> <!-- Affiche l'URL brute de la chaîne -->
+                  `;
+
                   listItem.appendChild(titleElement);
+                  listItem.appendChild(detailsElement);
                   videoList.appendChild(listItem);
 
+                  // Toggle the title and show/hide the additional details on click
                   listItem.addEventListener('click', function () {
                       if (listItem.classList.contains('expanded')) {
                           titleElement.textContent = shortTitle;
+                          detailsElement.classList.add('hidden');  // Hide details
                           listItem.classList.remove('expanded');
                       } else {
-                          titleElement.textContent = title;
+                          titleElement.textContent = video.title; // Show full title
+                          detailsElement.classList.remove('hidden');  // Show details
                           listItem.classList.add('expanded');
                       }
                   });
@@ -119,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Charger les permissions au démarrage
   loadPermissions();
 
+  // Fonction pour créer le graphique circulaire des catégories de vidéos
   function createPieChart() {
     const canvas = document.getElementById('categoryChart');
     const ctx = canvas.getContext('2d');
@@ -138,13 +155,15 @@ document.addEventListener('DOMContentLoaded', function() {
     data.forEach((value, index) => {
         const sliceAngle = (value / total) * (2 * Math.PI); // Angle de chaque tranche
         ctx.beginPath();
-        ctx.moveTo(150, 150); // Centre du camembert
-        ctx.arc(150, 150, 100, startAngle, startAngle + sliceAngle); // Tracer la tranche
+        ctx.moveTo(centerX, centerY); // Centre du camembert
+        ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle); // Tracer la tranche
         ctx.closePath();
         ctx.fillStyle = colors[index];
         ctx.fill();
         startAngle += sliceAngle; // Mettre à jour l'angle de départ
     });
   }
+
+  // Créer le graphique au démarrage
   createPieChart();
 });

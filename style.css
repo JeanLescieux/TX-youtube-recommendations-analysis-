@@ -117,3 +117,11 @@ footer {
 #saveButton:active {
   background-color: #388E3C;
 }
+
+.video-item div {
+  transition: max-height 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
