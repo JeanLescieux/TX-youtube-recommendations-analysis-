@@ -56,9 +56,6 @@ const updateVideoData = () => {
       }, 1000);
     });
   }
-
-  // Observer les changements du nom de la chaîne
-  observeChannelName();
 };
 
 // Fonction pour vérifier et mettre à jour le nombre de commentaires
@@ -134,19 +131,6 @@ const observeVideoChanges = () => {
     commentCheckInterval = setInterval(checkCommentCount, 1000); // Vérifier toutes les secondes
   } else {
     setTimeout(observeVideoChanges, 1000);
-  }
-};
-
-// Fonction pour observer le changement de nom de la chaîne
-const observeChannelName = () => {
-  const channelElement = document.querySelector('#channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
-  if (channelElement) {
-    const observer = new MutationObserver(() => {
-      videoData.channel = channelElement.innerText;
-      videoData.channelURL = channelElement.href;
-      console.log("Channel name updated:", videoData.channel);
-    });
-    observer.observe(channelElement, { childList: true, subtree: true });
   }
 };
 
