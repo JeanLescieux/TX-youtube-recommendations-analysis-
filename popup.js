@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
                       <p>Views: ${video.views}</p>
                       <p>Comments: ${video.comments}</p>
                       <p>Watch Time: ${video.watchTime} seconds</p>
+                      <p>Video URL: ${video.videoURL}</p> <!-- Affiche l'URL brute de la vidéo -->
+                      <p>Channel URL: ${video.channelURL}</p> <!-- Affiche l'URL brute de la chaîne -->
                   `;
 
                   listItem.appendChild(titleElement);

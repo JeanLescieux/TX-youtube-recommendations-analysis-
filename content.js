@@ -2,60 +2,74 @@
 let videoData = {};
 let currentVideoId = null;
 let watchTimeInterval = null;
-let channelCheckInterval = null;  // Ajout pour la vérification continue du nom de la chaîne
+let channelObserver = null;  // MutationObserver pour le nom de la chaîne
 
-// Fonction pour remettre à zéro les données de la vidéo
+// Fonction pour remettre à zéro les données de la vidéo, y compris le nom de la chaîne
 const resetVideoData = () => {
   videoData = {
     title: null,
-    channel: null,
+    channel: null, // Réinitialiser à chaque nouvelle vidéo
+    channelURL: null, // Ajout pour récupérer le href de la chaîne
+    videoURL: null,   // Ajout pour récupérer l'URL de la vidéo
     viewCount: null,
     watchTime: null,
     commentCount: null
   };
 };
 
-// Fonction pour récupérer le nom de la chaîne de manière asynchrone
-const checkChannelName = () => {
-  if (channelCheckInterval) {
-    clearInterval(channelCheckInterval);
-  }
-
-  channelCheckInterval = setInterval(() => {
-    const channelElement = document.querySelector('#channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
-    if (channelElement) {
-      videoData.channel = channelElement.innerText;
-      console.log('Channel Name Loaded:', videoData.channel);
-      clearInterval(channelCheckInterval);  // Stop checking once the channel name is loaded
-    } else {
-      console.log('Waiting for channel name to load...');
+// Fonction pour observer le nom de la chaîne avec un MutationObserver et récupérer le href
+const observeChannelName = () => {
+  const channelElement = document.querySelector('#channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
+  
+  if (channelElement) {
+    if (channelObserver) {
+      channelObserver.disconnect();  // Déconnecter tout observateur précédent
     }
-  }, 1000);  // Vérifie toutes les secondes
+
+    // Mettre à jour le nom de la chaîne et le href (URL)
+    videoData.channel = channelElement.innerText;
+    videoData.channelURL = channelElement.href;
+    console.log(`Channel Name Loaded: ${videoData.channel}, Channel URL: ${videoData.channelURL}`);
+    
+    channelObserver = new MutationObserver(() => {
+      const newChannelElement = document.querySelector('#channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
+      if (newChannelElement) {
+        videoData.channel = newChannelElement.innerText;
+        videoData.channelURL = newChannelElement.href;
+        console.log(`Channel Name Updated via MutationObserver: ${videoData.channel}, Channel URL: ${videoData.channelURL}`);
+      }
+    });
+
+    // Démarrer l'observation des changements dans l'élément de la chaîne
+    channelObserver.observe(channelElement, { childList: true, subtree: true });
+  } else {
+    console.log('Channel element not found, retrying...');
+  }
 };
 
 // Fonction pour mettre à jour les informations de la vidéo, vérifiant chaque seconde le temps de visionnage
 const updateVideoData = () => {
-  // Sélectionner uniquement les éléments présents sur la page de visionnage d'une vidéo
   const videoTitle = document.querySelector('h1.title.style-scope.ytd-video-primary-info-renderer');
-  const viewCount = document.querySelector('ytd-video-primary-info-renderer span.view-count');  // Correctif pour le nombre de vues
+  const viewCount = document.querySelector('ytd-video-primary-info-renderer span.view-count');
   const videoElement = document.querySelector('video');
 
   videoData.title = videoTitle ? videoTitle.innerText : null;
-  videoData.viewCount = viewCount ? viewCount.innerText : null;  // Mise à jour correcte du nombre de vues
-  
+  videoData.viewCount = viewCount ? viewCount.innerText : null;
+  videoData.videoURL = window.location.href;  // Récupérer l'URL de la vidéo actuelle
+
   // Vérification continue du temps de visionnage
   if (videoElement) {
     if (watchTimeInterval) {
       clearInterval(watchTimeInterval);
     }
     watchTimeInterval = setInterval(() => {
-      videoData.watchTime = Math.round(videoElement.currentTime);  // Temps mis à jour toutes les secondes
+      videoData.watchTime = Math.round(videoElement.currentTime);
       console.log('Updated watch time:', videoData.watchTime);
     }, 1000); // Mise à jour chaque seconde
   }
 
-  // Vérification continue du nom de la chaîne
-  checkChannelName();
+  // Observer les changements du nom de la chaîne
+  observeChannelName();
 
   console.log('Video data updated:', videoData);
 };
@@ -76,12 +90,14 @@ const checkCommentCount = () => {
 
 // Fonction pour envoyer les données de la vidéo
 const sendVideoData = () => {
-  console.log(`Sending video data: ${videoData.title}, ${videoData.channel}, ${videoData.viewCount}, ${videoData.commentCount}, ${videoData.watchTime}`);
+  console.log(`Sending video data: ${videoData.title}, ${videoData.channel}, ${videoData.channelURL}, ${videoData.videoURL}, ${videoData.viewCount}, ${videoData.commentCount}, ${videoData.watchTime}`);
   browser.runtime.sendMessage({
     videoTitle: videoData.title,
     channelName: videoData.channel,
+    channelURL: videoData.channelURL, // Envoyer le href de la chaîne
+    videoURL: videoData.videoURL,     // Envoyer l'URL de la vidéo
     viewCount: videoData.viewCount,
-    commentCount: videoData.commentCount,  // Null si les commentaires ne sont pas chargés
+    commentCount: videoData.commentCount,
     currentWatchTime: videoData.watchTime
   }).then(() => {
     console.log("Video data sent to background script");
@@ -100,24 +116,27 @@ const handleVideoChange = () => {
       sendVideoData();
     }
 
-    // Réinitialiser les informations et récupérer les nouvelles données
+    // Réinitialiser les informations à chaque changement de vidéo
     currentVideoId = newVideoId;
-    resetVideoData();
-    updateVideoData();
-    checkCommentCount();  // Vérifie les commentaires de manière asynchrone
+    resetVideoData(); // Remettre à zéro toutes les données
+
+    setTimeout(() => {
+      updateVideoData();
+      checkCommentCount(); // Vérifie les commentaires de manière asynchrone
+    }, 1000); // Attendre que la nouvelle vidéo soit complètement chargée
   }
 };
 
 // Fonction pour observer les changements de titre ou d'ID de vidéo
 const observeTitleChanges = () => {
-  const targetNode = document.querySelector('h1.title.style-scope.ytd-video-primary-info-renderer');
+  const titleNode = document.querySelector('h1.title.style-scope.ytd-video-primary-info-renderer');
 
-  if (targetNode) {
+  if (titleNode) {
     console.log("Title element found, starting observation...");
 
     const observer = new MutationObserver(handleVideoChange);
 
-    observer.observe(targetNode, { childList: true, subtree: true });
+    observer.observe(titleNode, { childList: true, subtree: true });
 
     // Charger les données pour la vidéo initiale
     currentVideoId = document.querySelector('ytd-watch-flexy').getAttribute('video-id');
