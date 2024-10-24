@@ -15,7 +15,8 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
         videoURL: message.videoURL,       // Ajout de l'URL de la vidéo
         views: message.viewCount,
         comments: message.commentCount,
-        watchTime: message.currentWatchTime  // Stocker le temps de visionnage
+        watchTime: message.currentWatchTime, // Stocker le temps de visionnage
+        recommendations: message.recommendations
       };
 
       watchedVideos.push(videoData);

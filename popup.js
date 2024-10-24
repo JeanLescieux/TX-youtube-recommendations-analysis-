@@ -31,9 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
                       <p>Views: ${video.views}</p>
                       <p>Comments: ${video.comments}</p>
                       <p>Watch Time: ${video.watchTime} seconds</p>
-                      <p>Video URL: ${video.videoURL}</p> <!-- Affiche l'URL brute de la vidéo -->
-                      <p>Channel URL: ${video.channelURL}</p> <!-- Affiche l'URL brute de la chaîne -->
+                      <p>Video URL: <a href="${video.videoURL}" target="_blank">${video.videoURL}</a></p>
+                      <p>Channel URL: <a href="${video.channelURL}" target="_blank">${video.channelURL}</a></p>
                   `;
+
+                  // Create a section for recommendations
+                  if (video.recommendations && video.recommendations.length > 0) {
+                      const recommendationsHeader = document.createElement('p');
+                      recommendationsHeader.textContent = "Recommendations:";
+                      detailsElement.appendChild(recommendationsHeader);
+
+                      const recommendationList = document.createElement('ul');
+                      video.recommendations.forEach(rec => {
+                          const recItem = document.createElement('li');
+                          recItem.innerHTML = `<a href="${rec.videoURL}" target="_blank">${rec.title}</a>`;
+                          recommendationList.appendChild(recItem);
+                      });
+                      detailsElement.appendChild(recommendationList);
+                  }
 
                   listItem.appendChild(titleElement);
                   listItem.appendChild(detailsElement);
