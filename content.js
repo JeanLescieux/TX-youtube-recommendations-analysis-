@@ -13,7 +13,8 @@ const resetVideoData = () => {
     videoURL: null,
     viewCount: null,
     watchTime: 0,
-    commentCount: null
+    commentCount: null,
+    recommendations: [] // Ajouter la liste des recommandations
   };
   console.log("Video data reset:", videoData);
 };
@@ -56,6 +57,9 @@ const updateVideoData = () => {
       }, 1000);
     });
   }
+
+  // Mettre à jour les recommandations
+  updateRecommendations();
 };
 
 // Fonction pour vérifier et mettre à jour le nombre de commentaires
@@ -74,6 +78,27 @@ const checkCommentCount = () => {
   }
 };
 
+// Fonction pour mettre à jour les recommandations
+const updateRecommendations = () => {
+  const recommendedElements = document.querySelectorAll('ytd-compact-video-renderer');
+  videoData.recommendations = [];
+
+  recommendedElements.forEach((element, index) => {
+    if (index < 5) { // Limiter aux 5 premières recommandations
+      const titleElement = element.querySelector('#video-title');
+      const linkElement = element.querySelector('a.yt-simple-endpoint.style-scope.ytd-compact-video-renderer');
+      const videoURL = linkElement ? `https://www.youtube.com${linkElement.getAttribute('href')}` : null;
+
+      videoData.recommendations.push({
+        title: titleElement ? titleElement.innerText : null,
+        videoURL: videoURL
+      });
+    }
+  });
+
+  console.log("Recommendations updated:", videoData.recommendations);
+};
+
 // Fonction pour envoyer les données de la vidéo
 const sendVideoData = () => {
   browser.runtime.sendMessage({
@@ -83,7 +108,8 @@ const sendVideoData = () => {
     videoURL: videoData.videoURL,
     viewCount: videoData.viewCount,
     commentCount: videoData.commentCount,
-    currentWatchTime: videoData.watchTime
+    currentWatchTime: videoData.watchTime,
+    recommendations: videoData.recommendations
   }).then(() => {
     console.log("Video data sent to background script");
   }).catch(err => {
