@@ -1,29 +1,35 @@
-// Réception des messages envoyés par content.js
+// background.js
+let sessionID = Date.now().toString(); // Unique session ID based on timestamp
+
+// Store the session ID at the beginning
+browser.storage.local.set({ sessionID }).then(() => {
+    console.log("Session ID created:", sessionID);
+});
+
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log("Message received in background script:", message);
 
   if (message.videoTitle) {
-    // Stockage des informations vidéo dans le local storage
-    browser.storage.local.get({ watchedVideos: [] }).then((result) => {
+    browser.storage.local.get({ watchedVideos: [], sessionID: sessionID }).then((result) => {
       const watchedVideos = result.watchedVideos;
-
-      // Préparer les nouvelles données vidéo
+      
       const videoData = {
+        sessionID: result.sessionID,
         title: message.videoTitle,
         channel: message.channelName,
-        channelURL: message.channelURL,   // Ajout de l'URL de la chaîne
-        videoURL: message.videoURL,       // Ajout de l'URL de la vidéo
+        channelURL: message.channelURL,
+        videoURL: message.videoURL,
         views: message.viewCount,
         comments: message.commentCount,
-        watchTime: message.currentWatchTime, // Stocker le temps de visionnage
+        watchTime: message.currentWatchTime,
         recommendations: message.recommendations
       };
 
       watchedVideos.push(videoData);
-      console.log("Storing video data in local storage:", videoData);
+      console.log("Storing video data with session ID in local storage:", videoData);
 
       browser.storage.local.set({ watchedVideos }, () => {
-        console.log("Video data successfully stored.");
+        console.log("Video data with session ID stored successfully.");
       });
     }).catch(err => {
       console.error("Error retrieving local storage:", err);
@@ -32,3 +38,4 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("No video title received in the background script.");
   }
 });
+

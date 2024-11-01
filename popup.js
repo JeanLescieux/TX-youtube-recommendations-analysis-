@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                       <p>Watch Time: ${video.watchTime} seconds</p>
                       <p>Video URL: <a href="${video.videoURL}" target="_blank">${video.videoURL}</a></p>
                       <p>Channel URL: <a href="${video.channelURL}" target="_blank">${video.channelURL}</a></p>
+                      <p>Session id: <a href="${video.sessionID}" target="_blank">${video.sessionID}</a></p>
                   `;
 
                   // Create a section for recommendations
