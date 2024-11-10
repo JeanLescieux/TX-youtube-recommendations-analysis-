@@ -3,12 +3,13 @@ let videoData = {};
 let currentVideoId = null;
 let watchTimeInterval = null;
 let commentCheckInterval = null;
-let hasSentHomeRecommendations = false; // Pour éviter d'envoyer plusieurs fois les recommandations de la page d'accueil
+let homePageInterval = null;
+let hasSentHomeRecommendations = false; // Pour éviter l'envoi multiple des recommandations de la page d'accueil
 
 // Fonction pour réinitialiser les données de la vidéo
 const resetVideoData = () => {
   videoData = {
-    type: "watchedVideo", // Définir le type pour les vidéos regardées
+    type: "watchedVideo",
     title: null,
     channel: null,
     channelURL: null,
@@ -63,7 +64,7 @@ const updateRecommendations = () => {
   const recommendedElements = document.querySelectorAll('ytd-compact-video-renderer');
   videoData.recommendations = [];
   recommendedElements.forEach((element, index) => {
-    if (index < 5) {
+    if (index < 5) { // Limiter aux 5 premières vidéos
       const titleElement = element.querySelector('#video-title');
       const linkElement = element.querySelector('a.yt-simple-endpoint.style-scope.ytd-compact-video-renderer');
       const videoURL = linkElement ? `https://www.youtube.com${linkElement.getAttribute('href')}` : null;
@@ -128,12 +129,12 @@ const checkCommentCount = () => {
   }
 };
 
-// Fonction pour observer les recommandations sur la page d'accueil
+// Fonction pour récupérer les recommandations de la page d'accueil
 const scrapeHomeRecommendations = () => {
   let homeRecommendations = [];
   const recommendedElements = document.querySelectorAll('ytd-rich-item-renderer');
   recommendedElements.forEach((element, index) => {
-    if (index < 5) {
+    if (index < 5) { // Limiter aux 5 premières vidéos
       const titleElement = element.querySelector('#video-title');
       const channelElement = element.querySelector('#text > a');
       const linkElement = element.querySelector('a#thumbnail');
@@ -145,31 +146,53 @@ const scrapeHomeRecommendations = () => {
       });
     }
   });
-  console.log("Homepage recommendations:", homeRecommendations);
+  console.log("Homepage recommendations updated locally:", homeRecommendations);
 
-  // Envoyer les recommandations de la page d'accueil une seule fois par visite
-  if (!hasSentHomeRecommendations) {
-    browser.runtime.sendMessage({
-      type: "homePage",
-      recommendations: homeRecommendations
-    }).then(() => {
-      console.log("Homepage recommendations sent to background script");
-      hasSentHomeRecommendations = true; // Marquer comme envoyé pour éviter les duplications
-    }).catch(err => {
-      console.error("Error sending homepage recommendations:", err);
+  // Stocker les recommandations dans le localStorage pour un envoi ultérieur
+  browser.storage.local.set({ homePageRecommendations: homeRecommendations });
+};
+
+// Fonction pour gérer la collecte des recommandations toutes les secondes sur la page d'accueil
+const startHomePageScraping = () => {
+  if (homePageInterval) {
+    clearInterval(homePageInterval);
+  }
+  homePageInterval = setInterval(scrapeHomeRecommendations, 1000);
+};
+
+// Fonction pour arrêter la collecte des recommandations et envoyer les données lors du changement de page
+const stopHomePageScrapingAndSend = () => {
+  if (homePageInterval) {
+    clearInterval(homePageInterval);
+  }
+  if (!hasSentHomeRecommendations) { // Vérifier que les données ne sont envoyées qu'une seule fois
+    hasSentHomeRecommendations = true; // Marquer l'envoi pour éviter les duplications
+    browser.storage.local.get("homePageRecommendations").then((data) => {
+      // Envoi des données de la page d'accueil
+      browser.runtime.sendMessage({
+        type: "homePage",
+        recommendations: data.homePageRecommendations
+      }).then(() => {
+        console.log("Homepage recommendations sent to background script on page exit");
+      }).catch(err => {
+        console.error("Error sending homepage recommendations:", err);
+      });
     });
   }
 };
 
-// Fonction pour détecter le type de page et gérer l'envoi unique
+// Fonction pour détecter le type de page et gérer l'envoi unique par visite
 const checkPageTypeAndScrape = () => {
   const isHomePage = window.location.pathname === '/' || window.location.pathname === '/feed/trending';
 
   if (isHomePage) {
-    scrapeHomeRecommendations();
+    if (hasSentHomeRecommendations) {
+      hasSentHomeRecommendations = false; // Réinitialiser uniquement lors d'un retour sur la page d'accueil
+    }
+    startHomePageScraping();
   } else {
-    // Réinitialiser le drapeau si l'utilisateur quitte la page d'accueil
-    hasSentHomeRecommendations = false;
+    // Arrêter le scraping et envoyer les données
+    stopHomePageScrapingAndSend();
     handleVideoChange();
   }
 };

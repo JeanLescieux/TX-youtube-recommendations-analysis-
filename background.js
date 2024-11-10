@@ -31,6 +31,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   } else if (message.type === "homePage") {
     // Stocker les recommandations de la page d'accueil
+    console.log("Storing homepage recommendations:", homePageRecommendations); // This should appear now
     browser.storage.local.get({ homePageRecommendations: [] }).then((result) => {
       const homePageRecommendations = result.homePageRecommendations;
       homePageRecommendations.push({

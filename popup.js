@@ -2,10 +2,27 @@ console.log('popup.js est bien chargé');
 
 document.addEventListener('DOMContentLoaded', function () {
     const videoList = document.getElementById('videoList');
+    const categoryChartCanvas = document.getElementById('categoryChart');
+    const jsonButton = document.getElementById('jsonButton');
+    const jsonSection = document.getElementById('jsonSection');
+    const jsonDataDisplay = document.getElementById('jsonDataDisplay');
+
+    // Bouton pour afficher/masquer les données JSON
+    jsonButton.addEventListener('click', () => {
+        jsonSection.classList.toggle('hidden'); // Affiche ou masque la section JSON
+        loadAndDisplayJSON();
+    });
+
+    function loadAndDisplayJSON() {
+        browser.storage.local.get({ watchedVideos: [], homePageRecommendations: [] }).then(result => {
+            jsonDataDisplay.textContent = JSON.stringify(result, null, 2);
+        }).catch(error => {
+            console.error("Error fetching JSON data:", error);
+        });
+    }
 
     // Fonction pour charger et afficher les vidéos et recommandations
     function loadAndDisplayData() {
-        // Charger les vidéos regardées et les recommandations de la page d'accueil
         browser.storage.local.get({ watchedVideos: [], homePageRecommendations: [] }).then(function (result) {
             const watchedVideos = result.watchedVideos;
             const homePageRecommendations = result.homePageRecommendations;
@@ -115,10 +132,43 @@ document.addEventListener('DOMContentLoaded', function () {
                 noDataMsg.textContent = "Aucune donnée disponible pour le moment.";
                 videoList.appendChild(noDataMsg);
             }
+
+            // Appeler la fonction pour créer le graphique après avoir chargé les données
+            createPieChart();
         });
+    }
+
+    // Fonction pour créer le camembert des catégories de vidéos
+    function createPieChart() {
+        if (categoryChartCanvas) {
+            const ctx = categoryChartCanvas.getContext('2d');
+            const data = [20, 30, 25, 15, 10]; // Exemples de données
+            const labels = ['Éducation', 'Divertissement', 'Technologie', 'Musique', 'Voyage'];
+            const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'];
+
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        } else {
+            console.error("Canvas for category chart not found");
+        }
     }
 
     // Charger les vidéos et recommandations au démarrage
     loadAndDisplayData();
 });
-
