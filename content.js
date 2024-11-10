@@ -1,12 +1,14 @@
-// Variables pour stocker les informations de la vidéo
+// Variables pour stocker les informations de la vidéo et de la page d'accueil
 let videoData = {};
 let currentVideoId = null;
 let watchTimeInterval = null;
-let commentCheckInterval = null; // Intervalle pour vérifier les commentaires
+let commentCheckInterval = null;
+let hasSentHomeRecommendations = false; // Pour éviter d'envoyer plusieurs fois les recommandations de la page d'accueil
 
-// Fonction pour remettre à zéro les données de la vidéo
+// Fonction pour réinitialiser les données de la vidéo
 const resetVideoData = () => {
   videoData = {
+    type: "watchedVideo", // Définir le type pour les vidéos regardées
     title: null,
     channel: null,
     channelURL: null,
@@ -14,19 +16,18 @@ const resetVideoData = () => {
     viewCount: null,
     watchTime: 0,
     commentCount: null,
-    recommendations: [] // Ajouter la liste des recommandations
+    recommendations: []
   };
   console.log("Video data reset:", videoData);
 };
 
-// Fonction pour mettre à jour les informations de la vidéo
+// Fonction pour mettre à jour les informations de la vidéo regardée
 const updateVideoData = () => {
   const videoTitle = document.querySelector('h1.title.style-scope.ytd-video-primary-info-renderer');
   const viewCount = document.querySelector('ytd-video-primary-info-renderer span.view-count');
   const videoElement = document.querySelector('video');
   const channelElement = document.querySelector('#channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
 
-  // Mettre à jour les données sans vérifications répétées
   videoData.title = videoTitle ? videoTitle.innerText : null;
   videoData.viewCount = viewCount ? viewCount.innerText : null;
   videoData.videoURL = window.location.href;
@@ -35,18 +36,15 @@ const updateVideoData = () => {
 
   console.log("Video data updated:", videoData);
 
-  // Démarrer le suivi du temps de visionnage si l'élément vidéo existe
   if (videoElement) {
     if (watchTimeInterval) {
       clearInterval(watchTimeInterval);
     }
-
     watchTimeInterval = setInterval(() => {
       videoData.watchTime = Math.round(videoElement.currentTime);
       console.log("Current watch time updated:", videoData.watchTime);
-    }, 1000); // Mise à jour chaque seconde
+    }, 1000);
 
-    // Observer l'événement play pour commencer le suivi
     videoElement.addEventListener('play', () => {
       if (watchTimeInterval) {
         clearInterval(watchTimeInterval);
@@ -57,34 +55,15 @@ const updateVideoData = () => {
       }, 1000);
     });
   }
-
-  // Mettre à jour les recommandations
   updateRecommendations();
 };
 
-// Fonction pour vérifier et mettre à jour le nombre de commentaires
-const checkCommentCount = () => {
-  const commentElement = document.querySelector('ytd-comments-header-renderer #count .count-text span');
-  if (commentElement) {
-    const newCommentCount = commentElement.innerText.trim().replace(/\s/g, '');
-    if (videoData.commentCount !== newCommentCount) {
-      videoData.commentCount = newCommentCount;
-      console.log("Comment count updated:", videoData.commentCount);
-    } else {
-      console.log("No change in comment count:", videoData.commentCount);
-    }
-  } else {
-    console.log("Comment element not found yet.");
-  }
-};
-
-// Fonction pour mettre à jour les recommandations
+// Fonction pour récupérer les recommandations
 const updateRecommendations = () => {
   const recommendedElements = document.querySelectorAll('ytd-compact-video-renderer');
   videoData.recommendations = [];
-
   recommendedElements.forEach((element, index) => {
-    if (index < 5) { // Limiter aux 5 premières recommandations
+    if (index < 5) {
       const titleElement = element.querySelector('#video-title');
       const linkElement = element.querySelector('a.yt-simple-endpoint.style-scope.ytd-compact-video-renderer');
       const videoURL = linkElement ? `https://www.youtube.com${linkElement.getAttribute('href')}` : null;
@@ -95,13 +74,13 @@ const updateRecommendations = () => {
       });
     }
   });
-
   console.log("Recommendations updated:", videoData.recommendations);
 };
 
-// Fonction pour envoyer les données de la vidéo
+// Fonction pour envoyer les données de la vidéo regardée
 const sendVideoData = () => {
   browser.runtime.sendMessage({
+    type: videoData.type,
     videoTitle: videoData.title,
     channelName: videoData.channel,
     channelURL: videoData.channelURL,
@@ -120,45 +99,87 @@ const sendVideoData = () => {
 // Fonction pour gérer le changement de vidéo
 const handleVideoChange = () => {
   const newVideoId = document.querySelector('ytd-watch-flexy').getAttribute('video-id');
-
   if (newVideoId !== currentVideoId) {
-    // Envoyer les données de la vidéo précédente avant de passer à la nouvelle
     if (currentVideoId) {
       sendVideoData();
     }
-
-    // Réinitialiser les informations à chaque changement de vidéo
     currentVideoId = newVideoId;
     resetVideoData();
     setTimeout(() => {
       updateVideoData();
       checkCommentCount();
-    }, 1000); // Attendre que la nouvelle vidéo soit complètement chargée
+    }, 1000);
   }
 };
 
-// Fonction pour observer les changements de vidéo via l'ID
-const observeVideoChanges = () => {
-  const videoElement = document.querySelector('ytd-watch-flexy');
-  if (videoElement) {
-    const observer = new MutationObserver(handleVideoChange);
-    observer.observe(videoElement, { attributes: true, attributeFilter: ['video-id'] });
-
-    // Initialiser les données pour la première vidéo
-    currentVideoId = videoElement.getAttribute('video-id');
-    resetVideoData();
-    updateVideoData();
-    checkCommentCount();
-
-    // S'assurer que les données sont envoyées lors de la fermeture de la page
-    window.addEventListener('beforeunload', sendVideoData);
-
-    // Démarrer le contrôle des commentaires
-    commentCheckInterval = setInterval(checkCommentCount, 1000); // Vérifier toutes les secondes
+// Fonction pour vérifier et mettre à jour le nombre de commentaires
+const checkCommentCount = () => {
+  const commentElement = document.querySelector('ytd-comments-header-renderer #count .count-text span');
+  if (commentElement) {
+    const newCommentCount = commentElement.innerText.trim().replace(/\s/g, '');
+    if (videoData.commentCount !== newCommentCount) {
+      videoData.commentCount = newCommentCount;
+      console.log("Comment count updated:", videoData.commentCount);
+    } else {
+      console.log("No change in comment count:", videoData.commentCount);
+    }
   } else {
-    setTimeout(observeVideoChanges, 1000);
+    console.log("Comment element not found yet.");
   }
 };
 
-// Lancer l'observation des changements de vidéo
-observeVideoChanges();
+// Fonction pour observer les recommandations sur la page d'accueil
+const scrapeHomeRecommendations = () => {
+  let homeRecommendations = [];
+  const recommendedElements = document.querySelectorAll('ytd-rich-item-renderer');
+  recommendedElements.forEach((element, index) => {
+    if (index < 5) {
+      const titleElement = element.querySelector('#video-title');
+      const channelElement = element.querySelector('#text > a');
+      const linkElement = element.querySelector('a#thumbnail');
+
+      homeRecommendations.push({
+        title: titleElement ? titleElement.innerText : null,
+        channel: channelElement ? channelElement.innerText : null,
+        videoURL: linkElement ? `${linkElement.getAttribute('href')}` : null
+      });
+    }
+  });
+  console.log("Homepage recommendations:", homeRecommendations);
+
+  // Envoyer les recommandations de la page d'accueil une seule fois par visite
+  if (!hasSentHomeRecommendations) {
+    browser.runtime.sendMessage({
+      type: "homePage",
+      recommendations: homeRecommendations
+    }).then(() => {
+      console.log("Homepage recommendations sent to background script");
+      hasSentHomeRecommendations = true; // Marquer comme envoyé pour éviter les duplications
+    }).catch(err => {
+      console.error("Error sending homepage recommendations:", err);
+    });
+  }
+};
+
+// Fonction pour détecter le type de page et gérer l'envoi unique
+const checkPageTypeAndScrape = () => {
+  const isHomePage = window.location.pathname === '/' || window.location.pathname === '/feed/trending';
+
+  if (isHomePage) {
+    scrapeHomeRecommendations();
+  } else {
+    // Réinitialiser le drapeau si l'utilisateur quitte la page d'accueil
+    hasSentHomeRecommendations = false;
+    handleVideoChange();
+  }
+};
+
+// Fonction pour observer les changements de page
+const observePageChanges = () => {
+  const observer = new MutationObserver(checkPageTypeAndScrape);
+  observer.observe(document.body, { childList: true, subtree: true });
+  checkPageTypeAndScrape(); // Vérification initiale lors du chargement de la page
+};
+
+// Lancer l'observation des changements de page
+observePageChanges();
