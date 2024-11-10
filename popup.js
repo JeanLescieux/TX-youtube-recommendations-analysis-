@@ -4,13 +4,42 @@ document.addEventListener('DOMContentLoaded', function () {
     const videoList = document.getElementById('videoList');
     const categoryChartCanvas = document.getElementById('categoryChart');
     const jsonButton = document.getElementById('jsonButton');
+    const homeButton = document.getElementById('homeButton');
+    const settingsButton = document.getElementById('settingsButton');
+    const infoButton = document.getElementById('infoButton');
+
+    const homeSection = document.getElementById('homeSection');
     const jsonSection = document.getElementById('jsonSection');
+    const settingsSection = document.getElementById('settingsSection');
+    const infoSection = document.getElementById('infoSection');
+
     const jsonDataDisplay = document.getElementById('jsonDataDisplay');
 
-    // Bouton pour afficher/masquer les données JSON
+    // Hide all sections and only show the requested one
+    function showSection(section) {
+        homeSection.classList.add('hidden');
+        jsonSection.classList.add('hidden');
+        settingsSection.classList.add('hidden');
+        infoSection.classList.add('hidden');
+        section.classList.remove('hidden');
+    }
+
+    // Toggle between sections
     jsonButton.addEventListener('click', () => {
-        jsonSection.classList.toggle('hidden'); // Affiche ou masque la section JSON
-        loadAndDisplayJSON();
+        showSection(jsonSection);
+        loadAndDisplayJSON(); // Load JSON when showing JSON section
+    });
+
+    homeButton.addEventListener('click', () => {
+        showSection(homeSection);
+    });
+
+    settingsButton.addEventListener('click', () => {
+        showSection(settingsSection);
+    });
+
+    infoButton.addEventListener('click', () => {
+        showSection(infoSection);
     });
 
     function loadAndDisplayJSON() {
@@ -21,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Fonction pour charger et afficher les vidéos et recommandations
+    // Function to load and display video data in the main section
     function loadAndDisplayData() {
         browser.storage.local.get({ watchedVideos: [], homePageRecommendations: [] }).then(function (result) {
             const watchedVideos = result.watchedVideos;
@@ -29,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("Videos found in storage:", watchedVideos);
             console.log("Homepage recommendations found in storage:", homePageRecommendations);
 
-            videoList.innerHTML = ''; // Nettoyer la liste existante
+            videoList.innerHTML = ''; // Clear existing list
 
             if (watchedVideos.length > 0) {
                 watchedVideos.forEach(function (video) {
@@ -133,16 +162,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 videoList.appendChild(noDataMsg);
             }
 
-            // Appeler la fonction pour créer le graphique après avoir chargé les données
+            // Create the chart after loading data
             createPieChart();
         });
     }
 
-    // Fonction pour créer le camembert des catégories de vidéos
+    // Function to create the pie chart for video categories
     function createPieChart() {
         if (categoryChartCanvas) {
             const ctx = categoryChartCanvas.getContext('2d');
-            const data = [20, 30, 25, 15, 10]; // Exemples de données
+            const data = [20, 30, 25, 15, 10]; // Example data
             const labels = ['Éducation', 'Divertissement', 'Technologie', 'Musique', 'Voyage'];
             const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'];
 
@@ -169,6 +198,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Charger les vidéos et recommandations au démarrage
+    // Load videos and recommendations on startup
     loadAndDisplayData();
 });
