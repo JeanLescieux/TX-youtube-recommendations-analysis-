@@ -8,7 +8,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log("Message received in background script:", message);
 
   if (message.type === "watchedVideo") {
-    // Stocker les informations de la vidéo regardée
+    // Store watched video data with sessionID
     browser.storage.local.get({ watchedVideos: [], sessionID: sessionID }).then((result) => {
       const watchedVideos = result.watchedVideos;
       const videoData = {
@@ -30,19 +30,21 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     });
 
   } else if (message.type === "homePage") {
-    // Stocker les recommandations de la page d'accueil
-    console.log("Storing homepage recommendations:", homePageRecommendations); // This should appear now
-    browser.storage.local.get({ homePageRecommendations: [] }).then((result) => {
-      const homePageRecommendations = result.homePageRecommendations;
-      homePageRecommendations.push({
-        sessionID: sessionID,
-        type: "homePage",
-        recommendations: message.recommendations,
-        timestamp: new Date().toISOString()
-      });
+    // Store homepage recommendations as a single entry with sessionID and timestamp
+    browser.storage.local.get({ homePageRecommendations: [], sessionID: sessionID }).then((result) => {
+        const homePageRecommendations = result.homePageRecommendations;
 
-      console.log("Storing homepage recommendations:", homePageRecommendations);
-      browser.storage.local.set({ homePageRecommendations });
+        const homePageData = {
+            sessionID: result.sessionID,             // Overall session ID for this homepage session
+            type: "homePage",
+            recommendations: message.recommendations, // Store all five recommendations in one array
+            timestamp: new Date().toISOString()      // Add a timestamp
+        };
+
+        homePageRecommendations.push(homePageData);
+        console.log("Storing homepage recommendations with sessionID as a single array:", homePageData);
+        browser.storage.local.set({ homePageRecommendations });
     });
-  }
+}
+
 });
