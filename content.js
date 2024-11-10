@@ -104,21 +104,29 @@ const handleVideoChange = () => {
     }
 };
 
-// Function to check comment count
+// Function to check and update the number of comments with a retry mechanism
 const checkCommentCount = () => {
-    const commentElement = document.querySelector('ytd-comments-header-renderer #count .count-text span');
-    if (commentElement) {
-        const newCommentCount = commentElement.innerText.trim().replace(/\s/g, '');
-        if (videoData.commentCount !== newCommentCount) {
-            videoData.commentCount = newCommentCount;
-            console.log("Comment count updated:", videoData.commentCount);
-        } else {
-            console.log("No change in comment count:", videoData.commentCount);
-        }
-    } else {
-        console.log("Comment element not found yet.");
-    }
+  if (commentCheckInterval) clearInterval(commentCheckInterval); // Clear any previous interval
+
+  commentCheckInterval = setInterval(() => {
+      const commentElement = document.querySelector('ytd-comments-header-renderer #count .count-text span');
+      
+      if (commentElement) {
+          const newCommentCount = commentElement.innerText.trim().replace(/\s/g, '');
+          if (videoData.commentCount !== newCommentCount) {
+              videoData.commentCount = newCommentCount;
+              console.log("Comment count updated:", videoData.commentCount);
+          } else {
+              console.log("No change in comment count:", videoData.commentCount);
+          }
+          
+          clearInterval(commentCheckInterval); // Stop checking once the comment count is retrieved
+      } else {
+          console.log("Comment element not yet available, retrying...");
+      }
+  }, 1000); // Retry every second until the comment count is found
 };
+
 
 // Function to continuously scrape homepage recommendations and update the variable every second
 const scrapeHomeRecommendations = () => {
