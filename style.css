@@ -125,3 +125,12 @@ footer {
 .hidden {
   display: none;
 }
+
+#jsonDataDisplay {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-family: monospace;
+}

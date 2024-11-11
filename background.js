@@ -1,33 +1,50 @@
-// Réception des messages envoyés par content.js
+// background.js
+let sessionID = Date.now().toString();
+browser.storage.local.set({ sessionID }).then(() => {
+  console.log("Session ID created:", sessionID);
+});
+
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log("Message received in background script:", message);
 
-  if (message.videoTitle) {
-    // Stockage des informations vidéo dans le local storage
-    browser.storage.local.get({ watchedVideos: [] }).then((result) => {
+  if (message.type === "watchedVideo") {
+    // Store watched video data with sessionID
+    browser.storage.local.get({ watchedVideos: [], sessionID: sessionID }).then((result) => {
       const watchedVideos = result.watchedVideos;
-
-      // Préparer les nouvelles données vidéo
       const videoData = {
+        sessionID: result.sessionID,
+        type: "watchedVideo",
         title: message.videoTitle,
         channel: message.channelName,
-        channelURL: message.channelURL,   // Ajout de l'URL de la chaîne
-        videoURL: message.videoURL,       // Ajout de l'URL de la vidéo
+        channelURL: message.channelURL,
+        videoURL: message.videoURL,
         views: message.viewCount,
         comments: message.commentCount,
-        watchTime: message.currentWatchTime  // Stocker le temps de visionnage
+        watchTime: message.currentWatchTime,
+        recommendations: message.recommendations
       };
 
       watchedVideos.push(videoData);
-      console.log("Storing video data in local storage:", videoData);
-
-      browser.storage.local.set({ watchedVideos }, () => {
-        console.log("Video data successfully stored.");
-      });
-    }).catch(err => {
-      console.error("Error retrieving local storage:", err);
+      console.log("Storing watched video data:", videoData);
+      browser.storage.local.set({ watchedVideos });
     });
-  } else {
-    console.log("No video title received in the background script.");
-  }
+
+  } else if (message.type === "homePage") {
+    // Store homepage recommendations as a single entry with sessionID and timestamp
+    browser.storage.local.get({ homePageRecommendations: [], sessionID: sessionID }).then((result) => {
+        const homePageRecommendations = result.homePageRecommendations;
+
+        const homePageData = {
+            sessionID: result.sessionID,             // Overall session ID for this homepage session
+            type: "homePage",
+            recommendations: message.recommendations, // Store all five recommendations in one array
+            timestamp: new Date().toISOString()      // Add a timestamp
+        };
+
+        homePageRecommendations.push(homePageData);
+        console.log("Storing homepage recommendations with sessionID as a single array:", homePageData);
+        browser.storage.local.set({ homePageRecommendations });
+    });
+}
+
 });
