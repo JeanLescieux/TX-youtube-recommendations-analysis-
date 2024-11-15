@@ -6,11 +6,19 @@ let commentCheckInterval = null;
 let homePageInterval = null;
 let currentHomeRecommendations = []; // Store latest homepage recommendations
 let hasSentHomeRecommendations = false; // Ensure data is sent only once on page exit
+let uniqueVideoID = null; // ID unique pour la session de visionnage
+
+// Fonction pour générer un ID unique (timestamp)
+const generateUniqueVideoID = () => {
+    return Date.now();
+};
 
 // Function to reset video data
 const resetVideoData = () => {
+    uniqueVideoID = generateUniqueVideoID();
     videoData = {
-        type: "watchedVideo",
+        id: uniqueVideoID,
+        type: "Video",
         title: null,
         channel: null,
         channelURL: null,
@@ -18,7 +26,7 @@ const resetVideoData = () => {
         viewCount: null,
         watchTime: 0,
         commentCount: null,
-        recommendations: []
+        recommendedFrom: []
     };
     console.log("Video data reset:", videoData);
 };
@@ -50,28 +58,48 @@ const updateVideoData = () => {
     updateRecommendations();
 };
 
-// Function to gather recommendations
+// Fonction pour recueillir les recommandations sous le même format que la vidéo
 const updateRecommendations = () => {
     const recommendedElements = document.querySelectorAll('ytd-compact-video-renderer');
-    videoData.recommendations = [];
+    currentHomeRecommendations = [];  // On vide les anciennes recommandations
+
+    const recommendedFromInfo = {
+        id: uniqueVideoID,
+        title: videoData.title,
+        videoURL: videoData.videoURL
+    };
+
     recommendedElements.forEach((element, index) => {
-        if (index < 5) { // Limit to top 5 recommendations
+        if (index < 15) { // Limiter à 15 recommandations
             const titleElement = element.querySelector('#video-title');
             const linkElement = element.querySelector('a.yt-simple-endpoint.style-scope.ytd-compact-video-renderer');
             const videoURL = linkElement ? `https://www.youtube.com${linkElement.getAttribute('href')}` : null;
-
-            videoData.recommendations.push({
+            
+            const recommendation = {
+                id: uniqueVideoID,
+                type: "Video",  // Remplacer "watchedVideo" par "Video" pour chaque recommandation
                 title: titleElement ? titleElement.innerText : null,
-                videoURL: videoURL
-            });
+                videoURL: videoURL,
+                channel: null,  // Pas d'autres données disponibles pour les recommandations
+                channelURL: null,
+                viewCount: null,
+                watchTime: null,
+                commentCount: null,
+                recommendedFrom: [recommendedFromInfo]
+            };
+
+            currentHomeRecommendations.push(recommendation);
         }
     });
-    console.log("Recommendations updated:", videoData.recommendations);
+
+    console.log("Recommendations updated:", currentHomeRecommendations);
 };
 
-// Function to send video data to background script
+// Fonction pour envoyer les données de la vidéo au script de fond
 const sendVideoData = () => {
+    // Envoi de la vidéo regardée
     browser.runtime.sendMessage({
+        id: videoData.id,
         type: videoData.type,
         videoTitle: videoData.title,
         channelName: videoData.channel,
@@ -80,11 +108,31 @@ const sendVideoData = () => {
         viewCount: videoData.viewCount,
         commentCount: videoData.commentCount,
         currentWatchTime: videoData.watchTime,
-        recommendations: videoData.recommendations
+        recommendedFrom: videoData.recommendedFrom
     }).then(() => {
-        console.log("Video data sent to background script");
+        console.log("Video data sent to background script", videoData);
     }).catch(err => {
         console.error("Error sending video data:", err);
+    });
+
+    // Envoi des recommandations sous le même format
+    currentHomeRecommendations.forEach((recommendation) => {
+        browser.runtime.sendMessage({
+            id: recommendation.id,
+            type: recommendation.type,
+            videoTitle: recommendation.title,
+            channelName: recommendation.channel,
+            channelURL: recommendation.channelURL,
+            videoURL: recommendation.videoURL,
+            viewCount: recommendation.viewCount,
+            commentCount: recommendation.commentCount,
+            currentWatchTime: recommendation.watchTime,
+            recommendedFrom: recommendation.recommendedFrom
+        }).then(() => {
+            console.log("Recommendation sent to background script:", recommendation);
+        }).catch(err => {
+            console.error("Error sending recommendation:", err);
+        });
     });
 };
 
