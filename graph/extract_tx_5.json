@@ -1,0 +1,490 @@
+{
+  "watchedVideos": [
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670759263,
+      "type": "Video",
+      "title": "L’aéroport de Barcelone sous les eaux, des vols annulés",
+      "channel": "Le Parisien",
+      "channelURL": "https://www.youtube.com/@LeParisien",
+      "videoURL": "https://www.youtube.com/watch?v=mpcuUeMcWCI&ab_channel=LeParisien",
+      "views": "152 318 vues",
+      "comments": null,
+      "watchTime": 0,
+      "recommendedFrom": []
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670759263,
+      "type": "Video",
+      "title": "L'Espagne à nouveau touchée par des pluies torrentielles｜TF1 INFO",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=bnF4l7bp3yE",
+      "views": "500 000 vues",
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670759263,
+          "title": "L’aéroport de Barcelone sous les eaux, des vols annulés",
+          "videoURL": "https://www.youtube.com/watch?v=mpcuUeMcWCI&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670759263,
+      "type": "Video",
+      "title": "Ce bateau unique au monde sauvé in extremis de la destruction",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=-L5FAsANAnw",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670759263,
+          "title": "L’aéroport de Barcelone sous les eaux, des vols annulés",
+          "videoURL": "https://www.youtube.com/watch?v=mpcuUeMcWCI&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670759263,
+      "type": "Video",
+      "title": "Ce professeur israélien a été accusé de trahison contre son pays - En Société du 22 septembre 2024",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=ivhawHSCF80",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670759263,
+          "title": "L’aéroport de Barcelone sous les eaux, des vols annulés",
+          "videoURL": "https://www.youtube.com/watch?v=mpcuUeMcWCI&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670759263,
+      "type": "Video",
+      "title": "Le projet fou qui a sauvé les Pays-Bas | ATLAS",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=5Q0JSY8gB5g",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670759263,
+          "title": "L’aéroport de Barcelone sous les eaux, des vols annulés",
+          "videoURL": "https://www.youtube.com/watch?v=mpcuUeMcWCI&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670759263,
+      "type": "Video",
+      "title": "SARKOZY, COPÉ, LE FIGARO : LES VRAIS ASSISTÉS, C’EST EUX",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=xecZM6gl0oA",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670759263,
+          "title": "L’aéroport de Barcelone sous les eaux, des vols annulés",
+          "videoURL": "https://www.youtube.com/watch?v=mpcuUeMcWCI&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670768678,
+      "type": "Video",
+      "title": "Des pluies diluviennes frappent le sud de l'Espagne • FRANCE 24",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=--lvR_2HXq4",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670768678,
+          "title": "L'Espagne à nouveau touchée par des pluies torrentielles｜TF1 INFO",
+          "videoURL": "https://www.youtube.com/watch?v=bnF4l7bp3yE"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670768678,
+      "type": "Video",
+      "title": "Frontaliers : pourquoi les Suisses font leurs courses en France | RTS",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=TDaQGdA-BmE",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670768678,
+          "title": "L'Espagne à nouveau touchée par des pluies torrentielles｜TF1 INFO",
+          "videoURL": "https://www.youtube.com/watch?v=bnF4l7bp3yE"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670768678,
+      "type": "Video",
+      "title": "Cette fois, l'Assemblée nationale est HORS DE CONTRÔLE ! Personne ne sait ce qu'il va se passer",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=1nbvwCGEFCo",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670768678,
+          "title": "L'Espagne à nouveau touchée par des pluies torrentielles｜TF1 INFO",
+          "videoURL": "https://www.youtube.com/watch?v=bnF4l7bp3yE"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670768678,
+      "type": "Video",
+      "title": "Test iPhone 16 Pro après 2 mois : Apple a fait une erreur ?",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=lCidSJICKns",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670768678,
+          "title": "L'Espagne à nouveau touchée par des pluies torrentielles｜TF1 INFO",
+          "videoURL": "https://www.youtube.com/watch?v=bnF4l7bp3yE"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670774344,
+      "type": "Video",
+      "title": "Des pluies diluviennes frappent le sud de l'Espagne • FRANCE 24",
+      "channel": "Le Parisien",
+      "channelURL": "https://www.youtube.com/@LeParisien",
+      "videoURL": "https://www.youtube.com/watch?v=--lvR_2HXq4&ab_channel=FRANCE24",
+      "views": "61 640 vues",
+      "comments": null,
+      "watchTime": 0,
+      "recommendedFrom": []
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670774344,
+      "type": "Video",
+      "title": "Espagne : levée de l'alerte rouge aux intempéries après le passage de nouvelles tempêtes",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=zY5Fk9aR37U",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670774344,
+          "title": "Des pluies diluviennes frappent le sud de l'Espagne • FRANCE 24",
+          "videoURL": "https://www.youtube.com/watch?v=--lvR_2HXq4&ab_channel=FRANCE24"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670774344,
+      "type": "Video",
+      "title": "Violentes inondations en Espagne : des habitants de Saragosse piégés au milieu de torrents de boue",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=AyFxPqVjDls",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670774344,
+          "title": "Des pluies diluviennes frappent le sud de l'Espagne • FRANCE 24",
+          "videoURL": "https://www.youtube.com/watch?v=--lvR_2HXq4&ab_channel=FRANCE24"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670774344,
+      "type": "Video",
+      "title": "Pourquoi les villes américaines se ressemblent toutes ? | ATLAS",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=9JjNmGIcLbw",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670774344,
+          "title": "Des pluies diluviennes frappent le sud de l'Espagne • FRANCE 24",
+          "videoURL": "https://www.youtube.com/watch?v=--lvR_2HXq4&ab_channel=FRANCE24"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670778669,
+      "type": "Video",
+      "title": "Frontaliers : pourquoi les Suisses font leurs courses en France | RTS",
+      "channel": "Le Parisien",
+      "channelURL": "https://www.youtube.com/@LeParisien",
+      "videoURL": "https://www.youtube.com/watch?v=TDaQGdA-BmE&ab_channel=RTS-RadioT%C3%A9l%C3%A9visionSuisse",
+      "views": "90 622 vues",
+      "comments": null,
+      "watchTime": 5,
+      "recommendedFrom": []
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670778669,
+      "type": "Video",
+      "title": "Vivre avec le SMIC : paroles de Français｜TF1 INFO",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=wTM4yBUuQ-Y",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670778669,
+          "title": "Frontaliers : pourquoi les Suisses font leurs courses en France | RTS",
+          "videoURL": "https://www.youtube.com/watch?v=TDaQGdA-BmE&ab_channel=RTS-RadioT%C3%A9l%C3%A9visionSuisse"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670778669,
+      "type": "Video",
+      "title": "Conflans-Sainte-Honorine au palmarès de la « France moche » : les habitants défendent leur ville",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=9a-lo9NVgA8",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670778669,
+          "title": "Frontaliers : pourquoi les Suisses font leurs courses en France | RTS",
+          "videoURL": "https://www.youtube.com/watch?v=TDaQGdA-BmE&ab_channel=RTS-RadioT%C3%A9l%C3%A9visionSuisse"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670778669,
+      "type": "Video",
+      "title": "\"Suisse?\" – C’est quoi l’accent suisse?",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=cKuxIOKagFs",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670778669,
+          "title": "Frontaliers : pourquoi les Suisses font leurs courses en France | RTS",
+          "videoURL": "https://www.youtube.com/watch?v=TDaQGdA-BmE&ab_channel=RTS-RadioT%C3%A9l%C3%A9visionSuisse"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670778669,
+      "type": "Video",
+      "title": "Le flan en poudre, le secret le mieux gardé des boulangers",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=jXtQD22i3EY",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670778669,
+          "title": "Frontaliers : pourquoi les Suisses font leurs courses en France | RTS",
+          "videoURL": "https://www.youtube.com/watch?v=TDaQGdA-BmE&ab_channel=RTS-RadioT%C3%A9l%C3%A9visionSuisse"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670784815,
+      "type": "Video",
+      "title": "Le flan en poudre, le secret le mieux gardé des boulangers",
+      "channel": "Le Parisien",
+      "channelURL": "https://www.youtube.com/@LeParisien",
+      "videoURL": "https://www.youtube.com/watch?v=jXtQD22i3EY&ab_channel=LeParisien",
+      "views": "234 103 vues",
+      "comments": null,
+      "watchTime": 0,
+      "recommendedFrom": []
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670784815,
+      "type": "Video",
+      "title": "Un ancien hacker analyse des scènes de films 💻 | Science vs Fiction",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=UlAMSHNoJFo",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670784815,
+          "title": "Le flan en poudre, le secret le mieux gardé des boulangers",
+          "videoURL": "https://www.youtube.com/watch?v=jXtQD22i3EY&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670784815,
+      "type": "Video",
+      "title": "Recette de Pâte à Pizza Pro - Style Napolitaine Contemporaine",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=vQOGp_iIHMU",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670784815,
+          "title": "Le flan en poudre, le secret le mieux gardé des boulangers",
+          "videoURL": "https://www.youtube.com/watch?v=jXtQD22i3EY&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670784815,
+      "type": "Video",
+      "title": "Où est passé CE Kylian ?",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=DS_3qTksA7E",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670784815,
+          "title": "Le flan en poudre, le secret le mieux gardé des boulangers",
+          "videoURL": "https://www.youtube.com/watch?v=jXtQD22i3EY&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670784815,
+      "type": "Video",
+      "title": "Comment la France est devenue si forte au basket ?",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=quejVNwzYLI",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670784815,
+          "title": "Le flan en poudre, le secret le mieux gardé des boulangers",
+          "videoURL": "https://www.youtube.com/watch?v=jXtQD22i3EY&ab_channel=LeParisien"
+        }
+      ]
+    },
+    {
+      "sessionID": "1731670746373",
+      "id": 1731670784815,
+      "type": "Video",
+      "title": "PLATS PREPARES : PRETS ? CONSOMMEZ",
+      "channel": null,
+      "channelURL": null,
+      "videoURL": "https://www.youtube.com/watch?v=BdKg3DiNCfs",
+      "views": null,
+      "comments": null,
+      "watchTime": null,
+      "recommendedFrom": [
+        {
+          "id": 1731670784815,
+          "title": "Le flan en poudre, le secret le mieux gardé des boulangers",
+          "videoURL": "https://www.youtube.com/watch?v=jXtQD22i3EY&ab_channel=LeParisien"
+        }
+      ]
+    }
+  ],
+  "homePageRecommendations": [
+    {
+      "sessionID": "1731670746373",
+      "type": "homePage",
+      "recommendations": [
+        {
+          "title": "Configurez le Range Rover selon vos souhaits.",
+          "channel": null,
+          "videoURL": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=CWKHu3jI3Z7n5NNiE6MEPwfKe2AiEhPGhe77_v4HaEmQQASAAYPuBhgOCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABuMKjgwOpAiJmx1_vurE-qAMEqgTJAU_QpQOmI0Fr2Od-pfX9kweGIP47C39cxTo-FUqks6CE8T1a09bFQH1J6pT33qn-8cGXMOu1zNj2dZLAdszbXeQnW-3TzPogWrwOb2T4xxVwK1s0wNQx4FTHLofbZApWXrPULszush4L1TUR-gcsLVlO8ijGMwtgdg22vE92vDaI7RW4RQDdfM6eKlNvwzJksL2lJk2FTmQvoOtshg562rcgStbxt9AKCvJgzyMWs4KiwIljlO7pVbk-D2z79xEZ89f33wWDSx3d6ZIFDAgSMJyuyZiGr_L2dpIFCggTaAF4592ioQWgBlWAB-D59_AEkAcEqAf5sbECqAeAurECqAfywLECqAe4xLECqAfnnbECqAfonbECqAfqt7ECqAentbECqAfvtbECqAfwtbECqAeCqrECqAeECKgHqNIbqAe2B6gHsdwbqAekmrECqAeRn7ECqAewm7ECqAeusbECqAfmvLECqAemqrECqAfKurECqAfswLECqAf9srECqAf3uLECqAf4uLECqAeBxhuoB_yvsQKoB9XOG6gHq8UbqAeVCKgHnNwbqAfmnbECqAe3obECqAfetbECkggLZHUzSmVHTVNWeHeoCAHSCDUIiMWQeBABGF4yB_OCgeCfgAE6EYDAmIiAiIAGgICAgICQhuADSNmg0jVQFFjozOSfoN6JA5oJUmh0dHBzOi8vYnVpbGR5b3VyLmxhbmRyb3Zlci5mci9sci9mcl9mci9sNDYwX2syNS80YmcyOC9hLWFiX2Etc3diL2lwci9wZXJzb25hbGlzZS-xCZVeOhWNEM8WyAkXyAmPAcgJkAHICcIBugtKCAIQBRgWIAcoATADQAFIAFABWGRgAGgAcAGIAQCYAQGiAR4KFggBKAHauAQOMgw6CgoIKDCYF9mg0jWoAgLYAgTYAQaAAgGIAgbQCxLgCwGaDQESqg0CRlLIDQHSDZ4EaHR0cHM6Ly9hZC5kb3VibGVjbGljay5uZXQvc2VhcmNoYWRzL2xpbmsvY2xpY2s_bGlkPTU4NzAwMDA4NzMzMDE0ODA2JmRzX2FfY2lkPTE0MTE5NTIzNTkmZHNfYV9jYWlkPTIxMzkzMDgyNDg4JmRzX2FfYWdpZD0mZHNfYV9maWlkPSZkc19hX2xpZD0mZHNfYV9leHRpZD0mJmRzX2VfYWRpZD0mZHNfZV9tYXRjaHR5cGU9JmRzX2VfZGV2aWNlPWMmZHNfZV9uZXR3b3JrPXgmJmRzX3VybF92PTImZHNfZGVzdF91cmw9aHR0cHM6Ly9idWlsZHlvdXIubGFuZHJvdmVyLmZyL2xyL2ZyX2ZyL2w0NjBfazI1LzRiZzI4L2EtYWJfYS1zd2IvaXByL3BlcnNvbmFsaXNlLz91dG1fc291cmNlPWdvb2dsZXBtYXgmdXRtX21lZGl1bT1DWE5XJnV0bV9jYW1wYWlnbj1mcl9udl9ycl9ycl9hbGxfYWxsX215MjNfZnJfZ21jMTAwMF90aGtfY3BkeHVlX2dvb2dsZXBtYXhfcG1fMjQwN19nb29nbGVwbWF4X211bF9pbnRlcmVzdF9wZWNvbl94cGxfcC1tYXhfQ1hOV18wNDQ5MTY3MF9kZ19PRjIwNDQxNzctNDEwODE5MTNfUC1MNDYwREMtRlkyNVEyJmdjbHNyYz1hdy5kcya4E____________wGIFAGwFALAFYGAgEDQFQHYFQGYFgHiFgIIAYAXAYoXFggDGAEgASgBMAE4AUABSAFQAVgBYAKgFwGpFwxNMzm1JZkkuhcEKAAwAA&gclid=EAIaIQobChMIueDkn6DeiQMVWAI6Ah1BuQeLEAEYASAAEgKQQPD_BwE&num=1&cid=CAASFeRod8S_cKzu99_Xnau8Q8rUSRR4kA&ad_cpn=%5BCPN%5D&sig=AOD64_0pujRymhWqyjL7DMbtPkHXsksSlA&ctype=110&video_id=du3JeGMSVxw&label=video_click_to_advertiser_site&ms=%5BCLICK_MS%5D&nb=%5BNB%5D&nx=%5BNX%5D&ny=%5BNY%5D&dim=%5BDIM%5D"
+        },
+        {
+          "title": "L’aéroport de Barcelone sous les eaux, des vols annulés",
+          "channel": "Le Parisien",
+          "videoURL": "/watch?v=mpcuUeMcWCI"
+        },
+        {
+          "title": "Oui, j'ai vécu dans une base en bois...",
+          "channel": "Klawz",
+          "videoURL": "/watch?v=XA2FdS70AFY"
+        },
+        {
+          "title": "Grève SNCF \"illimité et reconductible\": le trafic compliqué avant les fêtes",
+          "channel": "BFM VAR",
+          "videoURL": "/watch?v=hmydLX0NgY8"
+        },
+        {
+          "title": null,
+          "channel": null,
+          "videoURL": null
+        }
+      ],
+      "timestamp": "2024-11-15T11:39:18.204Z"
+    }
+  ]
+}
+

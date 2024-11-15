@@ -70,7 +70,7 @@ const updateRecommendations = () => {
     };
 
     recommendedElements.forEach((element, index) => {
-        if (index < 15) { // Limiter à 15 recommandations
+        if (index < 5) { // Limiter à 15 recommandations
             const titleElement = element.querySelector('#video-title');
             const linkElement = element.querySelector('a.yt-simple-endpoint.style-scope.ytd-compact-video-renderer');
             const videoURL = linkElement ? `https://www.youtube.com${linkElement.getAttribute('href')}` : null;

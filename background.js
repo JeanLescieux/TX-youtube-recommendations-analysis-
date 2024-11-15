@@ -16,7 +16,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             const watchedVideos = result.watchedVideos || [];
 
             // Vérifier si une vidéo avec le même videoURL existe déjà
-            const videoExists = watchedVideos.some(video => video.videoURL === message.videoURL);
+            const videoExists = watchedVideos.some(video => video.title === message.title);
 
             if (!videoExists) {
                 // Ajouter l'objet vidéo reçu au tableau watchedVideos
