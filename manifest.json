@@ -4,7 +4,7 @@
     "version": "1.0",
     "description": "Scrape watched YouTube video titles and display them.",
     "permissions": [
-        "activeTab",
+        "tabs",
         "storage",
         "https://www.youtube.com/*"
     ],

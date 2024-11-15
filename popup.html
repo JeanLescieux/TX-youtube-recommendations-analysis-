@@ -1,27 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watched YouTube Videos</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Recommendations Analysis</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Watched Videos</h1>
-  </header>
+    <div class="container">
+        <header>
+            <h1>YouTube Analysis</h1>
+            <div class="header-buttons">
+                <button id="homeButton" title="Accueil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path>
+                        <path d="M9 22V12h6v10"></path>
+                    </svg>
+                </button>
+                <button id="jsonButton" title="View JSON">
+                    JSON
+                </button>                
+                <button id="settingsButton" title="Paramètres">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
+                <button id="infoButton" title="À propos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4"></path>
+                        <path d="M12 8h.01"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        
+        <main>
+            <section id="homeSection">
+                <!-- Home page content -->
+                <section id="watchedVideos">
+                    <h2>Vidéos visionnées</h2>
+                    <ul id="videoList"></ul>
+                </section>
+                
+                <section id="videoCategories">
+                    <h2>Catégories de vidéos</h2>
+                    <canvas id="categoryChart" width="400" height="300"></canvas>
+                </section>
+            </section>
 
-  <!-- Section avec liste déroulante -->
-  <button id="scrapeHistoryButton">Scrape YouTube History</button>
-  <section class="dropdown-container">
-    <button id="toggleButton" class="dropdown-toggle">Show Watched Videos</button>
-    <div id="dropdownContent" class="dropdown-content hidden">
-      <ul id="videoList" class="video-list">
-        <!-- Les vidéos seront ajoutées ici dynamiquement -->
-      </ul>
+            <section id="jsonSection" class="hidden">
+                <h2>JSON Data</h2>
+                <pre id="jsonDataDisplay"></pre>
+            </section>            
+
+            <section id="settingsSection" class="hidden">
+                <h2>Paramètres de l'extension</h2>
+                <form id="permissionsForm">
+                    <h3>Permissions</h3>
+
+                    <div>
+                        <p>Accéder à l'historique de visionnage</p>
+                        <label>
+                            <input type="radio" name="readHistory" value="enabled"> Accepter
+                        </label>
+                        <label>
+                            <input type="radio" name="readHistory" value="disabled" checked> Refuser
+                        </label>
+                    </div>
+
+                    <div>
+                        <p>Accéder aux recommandations de YouTube</p>
+                        <label>
+                            <input type="radio" name="readRecommendations" value="enabled"> Accepter
+                        </label>
+                        <label>
+                            <input type="radio" name="readRecommendations" value="disabled" checked> Refuser
+                        </label>
+                    </div>
+
+                    <div>
+                        <p>Lire les titres et descriptions des vidéos</p>
+                        <label>
+                            <input type="radio" name="readMetadata" value="enabled"> Accepter
+                        </label>
+                        <label>
+                            <input type="radio" name="readMetadata" value="disabled" checked> Refuser
+                        </label>
+                    </div>
+
+                    <div>
+                        <p>Suivre le temps de visionnage</p>
+                        <label>
+                            <input type="radio" name="trackViewingTime" value="enabled"> Accepter
+                        </label>
+                        <label>
+                            <input type="radio" name="trackViewingTime" value="disabled" checked> Refuser
+                        </label>
+                    </div>
+
+                    <div>
+                        <p>Activer la collecte de données</p>
+                        <label>
+                            <input type="radio" name="collectData" value="enabled"> Accepter
+                        </label>
+                        <label>
+                            <input type="radio" name="collectData" value="disabled" checked> Refuser
+                        </label>
+                    </div>
+
+                    <button type="submit" id="saveButton">Enregistrer</button>
+                </form>
+            </section>
+
+            <section id="infoSection" class="hidden">
+                <h2>À propos de l'extension</h2>
+                <p>
+                    L'extension <strong>YouTube Recommendations Analysis</strong> vous permet de collecter et d'analyser des données sur vos habitudes de visionnage sur YouTube. 
+                    Enregistrez des informations telles que le titre des vidéos regardées, les recommandations, les descriptions, et le temps de visionnage.
+                </p>
+                <p>
+                    Grâce à ces données, vous pourrez explorer comment YouTube influence vos choix de contenu et si ses recommandations vous entraînent dans des 
+                    "rabbit holes" ou orientent votre vision politique.
+                </p>
+            </section>
+        </main>
+        
+        <footer>
+            <button id="analysisButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                Voir les résultats d'analyse
+            </button>
+        </footer>
     </div>
-  </section>
-
-  <script src="popup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="popup.js"></script>
 </body>
 </html>

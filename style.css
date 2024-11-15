@@ -1,121 +1,136 @@
-/* Style global */
-* {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background-color: #f9f9f9;
+  width: 350px;
+  background-color: #f0f0f0;
   color: #333;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 header {
-  background-color: #ff0000;
+  background-color: #cc0000;
   color: white;
-  padding: 15px;
-  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 18px;
+  margin: 0;
 }
 
-/* Dropdown style */
-.dropdown-container {
-  max-width: 800px;
-  margin: 20px auto;
-  text-align: center;
+.header-buttons {
+  display: flex;
+  gap: 10px;
 }
 
-/* Bouton en forme de bulle */
-.dropdown-toggle {
-  background-color: #ff0000;
-  color: white;
-  padding: 12px 25px;
+button {
+  background: none;
   border: none;
-  border-radius: 50px; /* Forme de bulle */
   cursor: pointer;
+  color: inherit;
+}
+
+main {
+  padding: 15px;
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+h2 {
   font-size: 16px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  color: #cc0000;
 }
 
-.dropdown-toggle:hover {
-  background-color: #cc0000;
+#videoList {
+  list-style-type: none;
+  padding: 0;
 }
 
-.dropdown-content {
-  margin-top: 15px;
-  max-width: 600px;
-  margin: 0 auto;
-  display: none;
-  background-color: white;
-  border-radius: 10px;
+#videoList li {
+  background-color: #e6e6e6;
+  margin-bottom: 5px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+#categoryChart {
+  width: 100%;
+  height:100%;
+  margin-top: 20px;
+}
+
+footer {
   padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #e0e0e0;
+}
+
+#analysisButton {
+  font-size: 16px;
+  width: 100%;
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+#analysisButton:hover {
+  background-color: #990000;
 }
 
 .hidden {
   display: none;
 }
 
-/* Style des éléments individuels de la vidéo */
-.video-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Forcer l'affichage en une seule colonne */
-.video-item {
-  padding: 10px;
-  font-size: 16px;
-  border-bottom: 1px solid #eee;
-  display: block; /* On s'assure que chaque item prend la largeur complète */
+#saveButton {
   width: 100%;
-}
-
-.video-item:last-child {
-  border-bottom: none;
-}
-
-.video-item:hover {
-  background-color: #f5f5f5;
-  cursor: pointer;
-}
-
-/* Supprimer l'affichage en colonnes par défaut */
-.video-list li {
-  display: block;
-  width: 100%; /* Forcer chaque élément à occuper toute la largeur du conteneur */
-  text-align: left;
-}
-
-.video-item {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
   padding: 10px;
-  font-size: 16px;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  width: 100%;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
 }
 
-.video-item:hover {
-  background-color: #f5f5f5;
+#saveButton:hover {
+  background-color: #45a049;
 }
 
-/* Limiter le titre à 40 caractères */
-.video-title {
-  white-space: nowrap;  /* Empêcher les sauts de ligne */
-  overflow: hidden;     /* Masquer le reste du texte */
-  text-overflow: ellipsis;  /* Ajouter des points de suspension si le texte est trop long */
-  max-width: 90%;  /* Limiter la largeur pour forcer la coupure du texte */
-  display: inline-block;
+#saveButton:active {
+  background-color: #388E3C;
 }
 
-.video-item.expanded .video-title {
-  white-space: normal;  /* Permet de voir tout le titre lorsque l'élément est cliqué */
-  overflow: visible;
-  text-overflow: initial;
+.video-item div {
+  transition: max-height 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+#jsonDataDisplay {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-family: monospace;
 }
