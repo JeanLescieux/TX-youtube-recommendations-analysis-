@@ -201,3 +201,34 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load videos and recommendations on startup
     loadAndDisplayData();
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const downloadJsonButton = document.getElementById('downloadJsonButton');
+    const jsonDataDisplay = document.getElementById('jsonDataDisplay');
+
+    // Fonction pour télécharger le JSON
+    function downloadJSON() {
+        // Récupérer les données affichées
+        const jsonData = jsonDataDisplay.textContent;
+
+        if (jsonData) {
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            // Crée un lien de téléchargement
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+            downloadLink.download = 'data.json';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(url);
+            console.log("Fichier JSON téléchargé avec succès !");
+        } else {
+            console.error("Aucune donnée JSON disponible à télécharger.");
+        }
+    }
+
+    // Ajouter un événement de clic au bouton "Download JSON"
+    downloadJsonButton.addEventListener('click', downloadJSON);
+});
