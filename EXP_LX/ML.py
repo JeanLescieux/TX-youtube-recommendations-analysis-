@@ -57,6 +57,9 @@ def preprocess_texts(transcript):
     return ' '.join(processed_texts)
 
 # Fonction pour évaluer plusieurs modèles de classification
+import joblib
+
+# Fonction pour évaluer plusieurs modèles de classification et sauvegarder le meilleur
 def test_classifiers(X_train, X_test, y_train, y_test):
     classifiers = {
         "Naive Bayes": MultinomialNB(),
@@ -68,6 +71,9 @@ def test_classifiers(X_train, X_test, y_train, y_test):
     }
     
     results = {}
+    best_model = None
+    best_accuracy = 0
+    
     for name, model in classifiers.items():
         clf = Pipeline([('tfidf', TfidfVectorizer()), ('classifier', model)])
         clf.fit(X_train, y_train)
@@ -75,18 +81,28 @@ def test_classifiers(X_train, X_test, y_train, y_test):
         accuracy = accuracy_score(y_test, y_pred)
         results[name] = accuracy
         print(f"{name} Accuracy: {accuracy * 100:.2f}%")
+        
+        # Sauvegarder le meilleur modèle
+        if name == "Logistic Regression" and accuracy > best_accuracy:
+            best_accuracy = accuracy
+            best_model = clf
+
+    if best_model is not None:
+        joblib.dump(best_model, 'best_logistic_regression_model.joblib')
+        print("Best Logistic Regression model saved.")
     
     return results
 
+
 # Fonction principale
 if __name__ == "__main__":
-    directory = 'politics'  # Répertoire contenant les fichiers JSON
+    directory = 'politics2'  # Répertoire contenant les fichiers JSON
 
     # Charger et prétraiter les fichiers JSON
     all_texts, all_labels = load_data(directory)
 
     # Diviser les données en ensembles d'entraînement et de test (80/20)
-    X_train, X_test, y_train, y_test = train_test_split(all_texts, all_labels, test_size=0.15, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(all_texts, all_labels, test_size=0.20, random_state=42)
 
     # Tester plusieurs classificateurs
     test_classifiers(X_train, X_test, y_train, y_test)
