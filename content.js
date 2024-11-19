@@ -23,20 +23,34 @@ const resetVideoData = () => {
     console.log("Video data reset:", videoData);
 };
 
-// Function to update video data
+
 const updateVideoData = () => {
     const videoTitle = document.querySelector('h1.title.style-scope.ytd-video-primary-info-renderer');
     const viewCount = document.querySelector('ytd-video-primary-info-renderer span.view-count');
     const videoElement = document.querySelector('video');
     const channelElement = document.querySelector('#channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
 
+    if (!channelElement) {
+        console.warn("Élément de chaîne introuvable, nouvelle tentative...");
+        setTimeout(updateVideoData, 500); // Réessayer après 500 ms
+        return;
+    }
+
+    // Ajout des logs pour vérifier chaque propriété
+    console.log("=== Mise à jour des données vidéo ===");
+    console.log("Titre de la vidéo :", videoTitle ? videoTitle.innerText.trim() : "Non trouvé");
+    console.log("Nombre de vues :", viewCount ? viewCount.innerText.trim() : "Non trouvé");
+    console.log("URL de la vidéo :", window.location.href);
+    console.log("Nom de la chaîne :", channelElement ? channelElement.innerText.trim() : "Non trouvé");
+    console.log("URL de la chaîne :", channelElement ? channelElement.href : "Non trouvé");
+
     videoData.title = videoTitle ? videoTitle.innerText : null;
     videoData.viewCount = viewCount ? viewCount.innerText : null;
     videoData.videoURL = window.location.href;
-    videoData.channel = channelElement ? channelElement.innerText : null;
+    videoData.channel = channelElement ? channelElement.innerText.trim() : null;
     videoData.channelURL = channelElement ? channelElement.href : null;
 
-    console.log("Video data updated:", videoData);
+    console.log("Données vidéo mises à jour :", videoData);
 
     if (videoElement) {
         if (watchTimeInterval) {
@@ -44,11 +58,12 @@ const updateVideoData = () => {
         }
         watchTimeInterval = setInterval(() => {
             videoData.watchTime = Math.round(videoElement.currentTime);
-            console.log("Current watch time updated:", videoData.watchTime);
+            //console.log("Temps de visionnage actuel mis à jour :", videoData.watchTime);
         }, 1000);
     }
     updateRecommendations();
 };
+
 
 // Function to gather recommendations
 const updateRecommendations = () => {
@@ -66,7 +81,7 @@ const updateRecommendations = () => {
             });
         }
     });
-    console.log("Recommendations updated:", videoData.recommendations);
+    //console.log("Recommendations updated:", videoData.recommendations);
 };
 
 // Function to send video data to background script
@@ -115,14 +130,14 @@ const checkCommentCount = () => {
           const newCommentCount = commentElement.innerText.trim().replace(/\s/g, '');
           if (videoData.commentCount !== newCommentCount) {
               videoData.commentCount = newCommentCount;
-              console.log("Comment count updated:", videoData.commentCount);
+              //console.log("Comment count updated:", videoData.commentCount);
           } else {
-              console.log("No change in comment count:", videoData.commentCount);
+              //console.log("No change in comment count:", videoData.commentCount);
           }
           
           clearInterval(commentCheckInterval); // Stop checking once the comment count is retrieved
       } else {
-          console.log("Comment element not yet available, retrying...");
+          //console.log("Comment element not yet available, retrying...");
       }
   }, 1000); // Retry every second until the comment count is found
 };
