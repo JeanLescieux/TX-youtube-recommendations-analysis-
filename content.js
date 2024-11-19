@@ -28,7 +28,7 @@ const updateVideoData = () => {
     const videoTitle = document.querySelector('h1.title.style-scope.ytd-video-primary-info-renderer');
     const viewCount = document.querySelector('ytd-video-primary-info-renderer span.view-count');
     const videoElement = document.querySelector('video');
-    const channelElement = document.querySelector('#channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
+    const channelElement = document.querySelector('ytd-video-owner-renderer #channel-name a.yt-simple-endpoint.style-scope.yt-formatted-string');
 
     if (!channelElement) {
         console.warn("Élément de chaîne introuvable, nouvelle tentative...");
