@@ -48,3 +48,32 @@ Si vous souhaitez contribuer au projet :
 ## License
 
 - tbd
+
+
+
+updateVideoData = () => {
+    if (!permissions.trackWatchedVideos) {
+
+         if (videoElement && permissions.trackViewingTime) {
+        if (watchTimeInterval) clearInterval(watchTimeInterval);
+        watchTimeInterval = setInterval(() => {
+            videoData.watchTime = Math.round(videoElement.currentTime);
+        }, 1000);
+    }
+    
+    if (permissions.trackSideRecommendations) {
+        updateRecommendations();
+    }
+
+
+const scrapeHomeRecommendations = () => {
+    if (!permissions.trackHomePageRec) {
+        console.log("Permission désactivée : Scraping de la page d'accueil.");
+        return;
+    }
+
+
+// Charger les permissions, puis commencer l'observation
+loadPermissions().then(() => {
+    observePageChanges();
+});

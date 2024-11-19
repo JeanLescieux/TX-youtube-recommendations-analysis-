@@ -1,11 +1,48 @@
-// Variables for video and homepage data tracking
+// Variables pour le suivi des vidéos et des recommandations
 let videoData = {};
 let currentVideoId = null;
 let watchTimeInterval = null;
 let commentCheckInterval = null;
 let homePageInterval = null;
-let currentHomeRecommendations = []; // Store latest homepage recommendations
-let hasSentHomeRecommendations = false; // Ensure data is sent only once on page exit
+let currentHomeRecommendations = []; // Dernières recommandations de la page d'accueil
+let hasSentHomeRecommendations = false; // Pour éviter l'envoi multiple des données
+
+// Permissions (chargées dynamiquement)
+let permissions = {
+    trackHomePageRec: false,
+    trackWatchedVideos: false,
+    trackViewingTime: false,
+    trackSideRecommendations: false,
+};
+
+// Charger les permissions sauvegardées dans le stockage local
+const loadPermissions = () => {
+    return browser.storage.local.get([
+        "trackHomePageRec",
+        "trackWatchedVideos",
+        "trackViewingTime",
+        "trackSideRecommendations"
+    ]).then(result => {
+        permissions.trackHomePageRec = result.trackHomePageRec === "enabled";
+        permissions.trackWatchedVideos = result.trackWatchedVideos === "enabled";
+        permissions.trackViewingTime = result.trackViewingTime === "enabled";
+        permissions.trackSideRecommendations = result.trackSideRecommendations === "enabled";
+
+        console.log("Permissions chargées :", permissions);
+    });
+};
+
+// Mettre à jour les permissions en temps réel
+browser.storage.onChanged.addListener((changes, area) => {
+    if (area === "local") {
+        Object.keys(changes).forEach(key => {
+            if (permissions.hasOwnProperty(key)) {
+                permissions[key] = changes[key].newValue === "enabled";
+                console.log(`Permission mise à jour : ${key} = ${permissions[key]}`);
+            }
+        });
+    }
+});
 
 // Function to reset video data
 const resetVideoData = () => {
@@ -25,6 +62,11 @@ const resetVideoData = () => {
 
 
 const updateVideoData = () => {
+    if (!permissions.trackWatchedVideos) {
+        console.log("Permission désactivée : Suivi des vidéos regardées.");
+        return;
+    }
+
     const videoTitle = document.querySelector('h1.title.style-scope.ytd-video-primary-info-renderer');
     const viewCount = document.querySelector('ytd-video-primary-info-renderer span.view-count');
     const videoElement = document.querySelector('video');
@@ -52,7 +94,7 @@ const updateVideoData = () => {
 
     console.log("Données vidéo mises à jour :", videoData);
 
-    if (videoElement) {
+    if (videoElement && permissions.trackViewingTime) {
         if (watchTimeInterval) {
             clearInterval(watchTimeInterval);
         }
@@ -61,7 +103,10 @@ const updateVideoData = () => {
             //console.log("Temps de visionnage actuel mis à jour :", videoData.watchTime);
         }, 1000);
     }
-    updateRecommendations();
+
+    if (permissions.trackSideRecommendations) {
+        updateRecommendations();
+    }
 };
 
 
@@ -145,6 +190,11 @@ const checkCommentCount = () => {
 
 // Function to continuously scrape homepage recommendations and update the variable every second
 const scrapeHomeRecommendations = () => {
+    if (!permissions.trackHomePageRec) {
+        console.log("Permission désactivée : Scraping de la page d'accueil.");
+        return;
+    }
+
     let homeRecommendations = [];
     const recommendedElements = document.querySelectorAll('ytd-rich-item-renderer');
 
@@ -211,5 +261,7 @@ const observePageChanges = () => {
     checkPageTypeAndScrape(); // Initial check on page load
 };
 
-// Start observing page changes
-observePageChanges();
+// Charger les permissions, puis commencer l'observation
+loadPermissions().then(() => {
+    observePageChanges();
+});
