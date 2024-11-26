@@ -10,11 +10,11 @@
     ],
     "background": {
         "scripts": [
-            "background.js"
+            "popup/background.js"
         ]
     },
     "browser_action": {
-        "default_popup": "popup.html",
+        "default_popup": "popup/popup.html",
         "default_icon": {
             "16": "icons/icon1.png",
             "48": "icons/icon1.png",
@@ -27,7 +27,7 @@
                 "*://www.youtube.com/*"
             ],
             "js": [
-                "content.js"
+                "popup/content.js"
             ],
             "run_at": "document_idle"
         }
