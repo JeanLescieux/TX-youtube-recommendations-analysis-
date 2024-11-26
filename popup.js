@@ -179,41 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 noDataMsg.textContent = "Aucune donnée disponible pour le moment.";
                 videoList.appendChild(noDataMsg);
             }
-
-            // Create the chart after loading data
-            createPieChart();
         });
-    }
-
-    // Function to create the pie chart for video categories
-    function createPieChart() {
-        if (categoryChartCanvas) {
-            const ctx = categoryChartCanvas.getContext('2d');
-            const data = [20, 30, 25, 15, 10]; // Example data
-            const labels = ['Éducation', 'Divertissement', 'Technologie', 'Musique', 'Voyage'];
-            const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'];
-
-            new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        data: data,
-                        backgroundColor: colors
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        }
-                    }
-                }
-            });
-        } else {
-            console.error("Canvas for category chart not found");
-        }
     }
 
     // Load videos and recommendations on startup
