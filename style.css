@@ -76,26 +76,32 @@ footer {
 }
 
 #analysisButton {
+  position: fixed; /* Fixe le bouton en bas de la fenêtre */
+  bottom: 10px; /* Marge de 10px en bas */
+  left: 10px; /* Marge de 10px à gauche */
+  right: 10px; /* Marge de 10px à droite */
   font-size: 16px;
-  width: 100%;
-  background-color: #cc0000;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
+  background-color: #cc0000; /* Couleur rouge */
+  color: white; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 10px; /* Espacement interne */
+  border-radius: 10px; /* Coins arrondis */
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 5px; /* Espace entre l'icône et le texte */
+  z-index: 1000; /* S'assure que le bouton reste au-dessus des autres éléments */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour donner du relief */
 }
+
 
 #analysisButton:hover {
   background-color: #990000;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 #saveButton {

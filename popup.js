@@ -17,12 +17,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Hide all sections and only show the requested one
     function showSection(section) {
+        console.log("Section à afficher :", section.id); // Log pour vérifier la section active
+        
+        const analysisButton = document.getElementById('analysisButton');
+    
+        // Masquer toutes les sections
         homeSection.classList.add('hidden');
         jsonSection.classList.add('hidden');
         settingsSection.classList.add('hidden');
         infoSection.classList.add('hidden');
+    
+        // Afficher la section demandée
         section.classList.remove('hidden');
+        console.log("Section affichée :", section.id); // Vérifiez si la section est affichée
+    
+        // Afficher ou masquer le bouton d'analyse
+        if (section === homeSection || section === jsonSection) {
+            analysisButton.classList.remove('hidden');
+            console.log("Bouton d'analyse affiché");
+        } else {
+            analysisButton.classList.add('hidden');
+            console.log("Bouton d'analyse masqué");
+        }
     }
+    
 
     // Toggle between sections
     jsonButton.addEventListener('click', () => {
