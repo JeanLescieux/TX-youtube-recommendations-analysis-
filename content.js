@@ -53,7 +53,7 @@ const resetVideoData = () => {
         channelURL: null,
         videoURL: null,
         viewCount: null,
-        watchTime: 0,
+        watchTime: null,
         commentCount: null,
         recommendations: []
     };
@@ -100,8 +100,8 @@ const updateVideoData = () => {
         }
         watchTimeInterval = setInterval(() => {
             videoData.watchTime = Math.round(videoElement.currentTime);
-            //console.log("Temps de visionnage actuel mis à jour :", videoData.watchTime);
-        }, 1000);
+            console.log("Temps de visionnage actuel mis à jour :", videoData.watchTime);
+        }, 2000);
     }
 
     if (permissions.trackSideRecommendations) {
