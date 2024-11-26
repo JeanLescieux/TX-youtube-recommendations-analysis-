@@ -4,6 +4,17 @@ browser.storage.local.set({ sessionID }).then(() => {
   console.log("Session ID created:", sessionID);
 });
 
+browser.runtime.onInstalled.addListener(() => {
+  browser.storage.local.set({
+    trackHomePageRec: "enabled",
+    trackWatchedVideos: "enabled",
+    trackViewingTime: "enabled",
+    trackSideRecommendations: "enabled"
+  }).then(() => {
+      console.log("Permissions initialisées avec les valeurs par défaut.");
+  });
+});
+
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log("Message received in background script:", message);
 

@@ -62,37 +62,27 @@
                     <h3>Permissions</h3>
 
                     <div>
-                        <p>Accéder à l'historique de visionnage</p>
+                        <p>Accéder aux recommendations de la page d'accueil</p>
                         <label>
-                            <input type="radio" name="readHistory" value="enabled"> Accepter
+                            <input type="radio" name="trackHomePageRec" value="enabled"> Accepter
                         </label>
                         <label>
-                            <input type="radio" name="readHistory" value="disabled" checked> Refuser
-                        </label>
-                    </div>
-
-                    <div>
-                        <p>Accéder aux recommandations de YouTube</p>
-                        <label>
-                            <input type="radio" name="readRecommendations" value="enabled"> Accepter
-                        </label>
-                        <label>
-                            <input type="radio" name="readRecommendations" value="disabled" checked> Refuser
+                            <input type="radio" name="trackHomePageRec" value="disabled" checked> Refuser
                         </label>
                     </div>
 
                     <div>
-                        <p>Lire les titres et descriptions des vidéos</p>
+                        <p>Suivre les vidéos regardées par l'utilisateur et récolter leurs informations</p>
                         <label>
-                            <input type="radio" name="readMetadata" value="enabled"> Accepter
+                            <input type="radio" name="trackWatchedVideos" value="enabled"> Accepter
                         </label>
                         <label>
-                            <input type="radio" name="readMetadata" value="disabled" checked> Refuser
+                            <input type="radio" name="trackWatchedVideos" value="disabled" checked> Refuser
                         </label>
                     </div>
 
                     <div>
-                        <p>Suivre le temps de visionnage</p>
+                        <p>Suivre le temps de visionnage de chaque vidéo regardée</p>
                         <label>
                             <input type="radio" name="trackViewingTime" value="enabled"> Accepter
                         </label>
@@ -102,18 +92,16 @@
                     </div>
 
                     <div>
-                        <p>Activer la collecte de données</p>
+                        <p>Accéder aux recommendations à droite de chaque vidéo regardée</p>
                         <label>
-                            <input type="radio" name="collectData" value="enabled"> Accepter
+                            <input type="radio" name="trackSideRecommendations" value="enabled"> Accepter
                         </label>
                         <label>
-                            <input type="radio" name="collectData" value="disabled" checked> Refuser
+                            <input type="radio" name="trackSideRecommendations" value="disabled" checked> Refuser
                         </label>
                     </div>
 
-                    <button type="submit" id="saveButton">Enregistrer</button>
-                </form>
-            </section>
+                    <div>
 
             <section id="infoSection" class="hidden">
                 <h2>À propos de l'extension</h2>

@@ -232,3 +232,33 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ajouter un événement de clic au bouton "Download JSON"
     downloadJsonButton.addEventListener('click', downloadJSON);
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const permissionRadios = document.querySelectorAll('#permissionsForm input[type="radio"]');
+
+    // Charger les valeurs des permissions au démarrage
+    browser.storage.local.get({
+        trackHomePageRec: "enabled",
+        trackWatchedVideos: "enabled",
+        trackViewingTime: "enabled",
+        trackSideRecommendations: "enabled"
+    }).then(result => {
+        // Appliquer les valeurs sauvegardées pour chaque bouton radio
+        permissionRadios.forEach(radio => {
+            if (result[radio.name] === radio.value) {
+                radio.checked = true; // Maintient la sélection utilisateur
+            }
+        });
+    });
+
+    // Mettre à jour les permissions dans le stockage local lors d'un changement
+    permissionRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            const { name, value } = radio;
+            browser.storage.local.set({ [name]: value }).then(() => {
+                console.log(`Permission "${name}" mise à jour : ${value}`);
+            });
+        });
+    });
+});
