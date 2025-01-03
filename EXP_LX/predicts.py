@@ -53,7 +53,7 @@ def get_youtube_transcript(video_id):
 # Fonction principale pour classifier une vidéo
 def classify_video(video_url):
     # Charger le modèle sauvegardé
-    model = joblib.load('best_logistic_regression_model.joblib')
+    model = joblib.load('best_videotype_model.joblib')
     
     video_id = video_url.split('v=')[-1].split('&')[0]
     
@@ -68,12 +68,16 @@ def classify_video(video_url):
     prediction = model.predict([processed_text])
     
     # Mapper les prédictions à leurs étiquettes
-    label_mapping = {0: "gauche", 1: "droite", 2: "extrême-droite"}
+    label_mapping = {
+    0: "sport", 1: "makeup", 2: "jeuxvideos", 3: "politique",
+    4: "tech", 5: "entertainment", 6: "vlog", 7: "actualites",
+    8: "cuisine", 9: "education", 10: "automobile"
+    }
     return label_mapping[prediction[0]]
 
 # Exemple d'utilisation
 if __name__ == "__main__":
-    video_url = 'https://www.youtube.com/watch?v=dk9_m48rQVg'
+    video_url = 'https://www.youtube.com/watch?v=d446WeSFDck'
     result = classify_video(video_url)
     
     if result is not None:

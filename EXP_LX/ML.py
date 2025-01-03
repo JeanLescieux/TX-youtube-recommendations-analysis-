@@ -25,7 +25,7 @@ nltk.download('stopwords')
 def load_data(directory):
     all_texts = []
     all_labels = []
-    label_mapping = {"gauche": 0, "droite": 1, "extrême-droite": 2}
+    label_mapping = {"sport": 0, "makeup": 1, "jeuxvideos": 2, "politique": 3, "tech": 4, "entertainment": 5, "vlog": 6, "actualites": 7, "cuisine": 8, "education": 9, "automobile": 10 }
 
     for filename in os.listdir(directory):
         if filename.endswith('.json'):
@@ -62,11 +62,11 @@ import joblib
 # Fonction pour évaluer plusieurs modèles de classification et sauvegarder le meilleur
 def test_classifiers(X_train, X_test, y_train, y_test):
     classifiers = {
-        "Naive Bayes": MultinomialNB(),
+        #"Naive Bayes": MultinomialNB(),
         "Logistic Regression": LogisticRegression(max_iter=1000),
         "SVM": SVC(),
         "Random Forest": RandomForestClassifier(),
-        "K-Nearest Neighbors": KNeighborsClassifier(),
+        #"K-Nearest Neighbors": KNeighborsClassifier(),
         "Decision Tree": DecisionTreeClassifier()
     }
     
@@ -83,20 +83,20 @@ def test_classifiers(X_train, X_test, y_train, y_test):
         print(f"{name} Accuracy: {accuracy * 100:.2f}%")
         
         # Sauvegarder le meilleur modèle
-        if name == "Logistic Regression" and accuracy > best_accuracy:
+        if accuracy > best_accuracy:
             best_accuracy = accuracy
             best_model = clf
 
     if best_model is not None:
-        joblib.dump(best_model, 'best_logistic_regression_model.joblib')
-        print("Best Logistic Regression model saved.")
+        joblib.dump(best_model, 'best_videotype_model.joblib')
+        print("Best model saved.")
     
     return results
 
 
 # Fonction principale
 if __name__ == "__main__":
-    directory = 'politics2'  # Répertoire contenant les fichiers JSON
+    directory = 'videotype'  # Répertoire contenant les fichiers JSON
 
     # Charger et prétraiter les fichiers JSON
     all_texts, all_labels = load_data(directory)

@@ -61,7 +61,7 @@ def save_transcript_to_file(transcript_json, video_id, output_dir):
     filename = os.path.join(output_dir, f"{video_id}.json")
     try:
         with open(filename, 'w', encoding='utf-8') as file:
-            file.write(f'{{"label": "droite", "transcript": {transcript_json}}}')
+            file.write(f'{{"label": "automobile", "transcript": {transcript_json}}}')
         print(f"Transcript saved to {filename}")
     except Exception as e:
         print(f"An error occurred while saving the transcript: {e}")
@@ -98,10 +98,10 @@ if __name__ == "__main__":
     api_key = 'AIzaSyDy6ZQySv5xUKMoPz-Sd15RCr5ZF_o8IoE'
 
     # ID de la chaîne YouTube
-    channel_id = 'UC7dqnnA1NyHvUiZgyK_vMiQ'  # Remplacez par l'ID de la chaîne
+    channel_id = 'UCssjcJIu2qO0g0_9hWRWa0g'  # Remplacez par l'ID de la chaîne
 
     # Dossier de sortie pour les fichiers JSON
-    output_dir = 'politics2'
+    output_dir = 'videotype'
 
     # Traiter toutes les vidéos de la chaîne
     process_channel_videos(api_key, channel_id, output_dir)

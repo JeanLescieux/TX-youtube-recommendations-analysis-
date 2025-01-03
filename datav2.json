@@ -1,0 +1,875 @@
+{
+    "watchedVideos": [
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Essai Lamborghini Huracan STO : ASSOMMANTE",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=k7xKlbYctIE",
+        "views": "203 651 vues",
+        "comments": "720",
+        "watchTime": 0,
+        "recommendations": []
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Radio Deter avec Gotaga, Kameto, Samuel Etienne, Kaatsup et Doigby",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=q7TdbwCy5CU",
+        "views": "742 470 vues",
+        "comments": "452",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Radio Deter avec Djilsi, Grimkujow, Etoiles, Zack Nani, Noah et BotKZ",
+            "videoURL": "https://www.youtube.com/watch?v=ZZz__HKuhbg"
+          },
+          {
+            "title": "ZEN LA DERNIÈRE avec Éric et Ramzy (à Bercy)",
+            "videoURL": "https://www.youtube.com/watch?v=Sp17OcwLRaM"
+          },
+          {
+            "title": "LE SKIN DE LA HONTE A $250 – [R.E.A.C.T.]",
+            "videoURL": "https://www.youtube.com/watch?v=gpAvdhT5MfI"
+          },
+          {
+            "title": "Essai Lamborghini Huracan STO : ASSOMMANTE",
+            "videoURL": "https://www.youtube.com/watch?v=k7xKlbYctIE"
+          },
+          {
+            "title": "L'HISTOIRE DE KANYE WEST !",
+            "videoURL": "https://www.youtube.com/watch?v=Z7UACitA-Dw&t=5633s"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "NICOLAS SARKOZY : CONFESSIONS INÉDITES DE L’ANCIEN PRÉSIDENT (parentalité, rumeurs, drames, succès)",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=stUqfrc1EFE",
+        "views": "2 811 036 vues",
+        "comments": "10079",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "DROIT DE RÉPONSE LÉGAL: DIEUDONNÉ RÉPOND À ÉLIE SEMOUN",
+            "videoURL": "https://www.youtube.com/watch?v=qFk_8btS1VU&t=361s"
+          },
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          },
+          {
+            "title": "Médias, bras armés des politiques? - Le PoinG",
+            "videoURL": "https://www.youtube.com/watch?v=zhfI94QZB7A"
+          },
+          {
+            "title": "L'HISTOIRE DE KANYE WEST !",
+            "videoURL": "https://www.youtube.com/watch?v=Z7UACitA-Dw&t=5633s"
+          },
+          {
+            "title": "Guerre au Proche-Orient : Dominique de Villepin face à Élisabeth Borne - #QuelleEpoque 23 nov. 2024",
+            "videoURL": "https://www.youtube.com/watch?v=0UmiAynwi4c"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "L'HISTOIRE DE KANYE WEST !",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=Z7UACitA-Dw&t=5633s",
+        "views": "2 364 732 vues",
+        "comments": "10079",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          },
+          {
+            "title": "L'HOMME AUX 1000 HITS ! (Max Martin)",
+            "videoURL": "https://www.youtube.com/watch?v=Nn_ooOIKZfE"
+          },
+          {
+            "title": "Développement Rallye - Sarrazin Motorsport - C3 Rally2",
+            "videoURL": "https://www.youtube.com/watch?v=HB0m1zOQjsI"
+          },
+          {
+            "title": "LORIS - L'ARGENT",
+            "videoURL": "https://www.youtube.com/watch?v=909LJxBypSc"
+          },
+          {
+            "title": "\n            Guerre au Proche-Orient : Dominique de Villepin face à Élisabeth Borne - #QuelleEpoque 23 nov. 2024\n          ",
+            "videoURL": "https://www.youtube.com/watch?v=0UmiAynwi4c"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "LORIS - L'ARGENT",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=909LJxBypSc",
+        "views": "1 364 801 vues",
+        "comments": "4919",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "T'AS 5 MINUTES : LA FERRARI F50 (la mal aimée)",
+            "videoURL": "https://www.youtube.com/watch?v=hC5FNxTT4y0"
+          },
+          {
+            "title": "[GMK] QU’EST CE QUE JE FAIS DANS LA VIE   !! COMBIEN JE DÉPENSE     !!",
+            "videoURL": "https://www.youtube.com/watch?v=Ff7cxAc2xtA"
+          },
+          {
+            "title": "Caroline Marx a sa propre manière de se changer !   ",
+            "videoURL": "https://www.youtube.com/watch?v=ENHvZcohJkY"
+          },
+          {
+            "title": "Loris Giuliano & Adèle Exarchopoulos en balade",
+            "videoURL": "https://www.youtube.com/watch?v=Yo0SRlDgCPs"
+          },
+          {
+            "title": "Le best of de Fabrice Éboué - INSIDE JAMEL COMEDY CLUB",
+            "videoURL": "https://www.youtube.com/watch?v=LuwSs5vAFRk"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Caroline Marx a sa propre manière de se changer !   ",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=ENHvZcohJkY",
+        "views": "39 vues",
+        "comments": "3328",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Allocution du Président de la République Emmanuel Macron du jeudi 5 décembre 2024",
+            "videoURL": "https://www.youtube.com/watch?v=rhg07iAPdHg"
+          },
+          {
+            "title": "Loris Giuliano & Adèle Exarchopoulos en balade",
+            "videoURL": "https://www.youtube.com/watch?v=Yo0SRlDgCPs"
+          },
+          {
+            "title": "On debunk les mythes sur l'email marketing 1 par 1",
+            "videoURL": "https://www.youtube.com/watch?v=5ZqCq-LWf68"
+          },
+          {
+            "title": "Vintage Mecanic S09E12 AC Cobra",
+            "videoURL": "https://www.youtube.com/watch?v=MR-j9TUhECw"
+          },
+          {
+            "title": "On teste des lieux notés 1 étoile ! (En Pologne 🇵🇱)   ",
+            "videoURL": "https://www.youtube.com/watch?v=h4fwCvsFE8Y"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "On debunk les mythes sur l'email marketing 1 par 1",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=5ZqCq-LWf68",
+        "views": "33 vues",
+        "comments": "2",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "PORSCHE REFUSED TO SELL ME A GT3RS - FULL MOVIE",
+            "videoURL": "https://www.youtube.com/watch?v=sohjnE-8Vug"
+          },
+          {
+            "title": "I drove these NEW electric cars until they DIED!",
+            "videoURL": "https://www.youtube.com/watch?v=2Z2VrcsPGXI"
+          },
+          {
+            "title": "Loris Giuliano & Adèle Exarchopoulos en balade",
+            "videoURL": "https://www.youtube.com/watch?v=Yo0SRlDgCPs"
+          },
+          {
+            "title": "Nissan Juke NISMO RS : mieux que la CLIO RS ?",
+            "videoURL": "https://www.youtube.com/watch?v=E2kMVzdXjpU"
+          },
+          {
+            "title": "Comment j’ai infiltré Daesh : Plongée au Coeur du Terrorisme Moderne | Documentaire HD",
+            "videoURL": "https://www.youtube.com/watch?v=E1NiCQWKkKU"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Les confidences d’Alain Prost, légende de la F1 : son harcèlement, Ayrton Senna, sa famille - CANAL+",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=yrHb4fI4uRw",
+        "views": "96 332 vues",
+        "comments": null,
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          },
+          {
+            "title": "Allocution d'Emmanuel Macron après la censure du gouvernement Barnier｜TF1 INFO",
+            "videoURL": "https://www.youtube.com/watch?v=wm7fhYMmqbQ"
+          },
+          {
+            "title": "On nous a rassuré, ON ÉTAIT TRAITÉS AUX PETITS OIGNONS!",
+            "videoURL": "https://www.youtube.com/watch?v=xljaagO_voo"
+          },
+          {
+            "title": "[GMK] QU’EST CE QUE JE FAIS DANS LA VIE   !! COMBIEN JE DÉPENSE     !!",
+            "videoURL": "https://www.youtube.com/watch?v=Ff7cxAc2xtA"
+          },
+          {
+            "title": "Loris Giuliano & Adèle Exarchopoulos en balade",
+            "videoURL": "https://www.youtube.com/watch?v=Yo0SRlDgCPs"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Allocution d'Emmanuel Macron après la censure du gouvernement Barnier｜TF1 INFO",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=wm7fhYMmqbQ",
+        "views": "262 059 vues",
+        "comments": "3111",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Macron et la censure : \"LE BORDEL, C'EST PAS MA FAUTE !\"",
+            "videoURL": "https://www.youtube.com/watch?v=E6Nq20slcB0"
+          },
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          },
+          {
+            "title": "Discours de Marine Le Pen sur la motion de censure contre le gouvernement.",
+            "videoURL": "https://www.youtube.com/watch?v=gSur2UaWgeY"
+          },
+          {
+            "title": "Le discours d'Emmanuel Macron en intégralité (puis réponse à vos questions)",
+            "videoURL": "https://www.youtube.com/watch?v=Kce9oVKrXv8"
+          },
+          {
+            "title": "Swap Citroën AX / Voiturette de golf",
+            "videoURL": "https://www.youtube.com/watch?v=SHpzEcXkhEo"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Jean-Luc Mélenchon invité du 20h de TF1",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=Td61Nx5bDiE",
+        "views": "132 800 vues",
+        "comments": "3111",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Marine Le Pen, invitée de Christine Kelly dans \"Face à l'info\" sur CNEWS (05/12/2024)",
+            "videoURL": "https://www.youtube.com/watch?v=Tb4EhZiejbc"
+          },
+          {
+            "title": "🟥 Barnier est tombé, Macron doit démissionner !",
+            "videoURL": "https://www.youtube.com/watch?v=VMQJQmKoohE"
+          },
+          {
+            "title": "DSK, enquête sur un homme d’influence - Cash investigation",
+            "videoURL": "https://www.youtube.com/watch?v=OPE8fIvOtQE"
+          },
+          {
+            "title": "Macron bloque tout : qu'il s'en aille !",
+            "videoURL": "https://www.youtube.com/watch?v=pSDn4NLMRXg"
+          },
+          {
+            "title": "Malik Bentalha - L'heure de trop sur TNEWS",
+            "videoURL": "https://www.youtube.com/watch?v=eymKly8CoUI"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "DSK, enquête sur un homme d’influence - Cash investigation",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=OPE8fIvOtQE",
+        "views": "437 810 vues",
+        "comments": "597",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Le parcours d'un roi - Le Maroc de Mohammed VI",
+            "videoURL": "https://www.youtube.com/watch?v=IIMNl3Qr5rE"
+          },
+          {
+            "title": "Groupe Kering (Gucci, Balenciaga …) : les pros du montage fiscal - Cash investigation",
+            "videoURL": "https://www.youtube.com/watch?v=H5nc3dVLHbA"
+          },
+          {
+            "title": "Guerre au Proche-Orient : Dominique de Villepin face à Élisabeth Borne - #QuelleEpoque 23 nov. 2024",
+            "videoURL": "https://www.youtube.com/watch?v=0UmiAynwi4c"
+          },
+          {
+            "title": "J’arrête les blagues à risque - Haroun",
+            "videoURL": "https://www.youtube.com/watch?v=X9M3AZnGzfE"
+          },
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Mohamed Merah, l'histoire d'un enfant de banlieue devenu l'ennemi public n°1",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=Kw8RG0FF_ds",
+        "views": "5 289 283 vues",
+        "comments": "597",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "J'ai infiltré Daesh en France",
+            "videoURL": "https://www.youtube.com/watch?v=SbU4oRFVtV4"
+          },
+          {
+            "title": "Mohamed Merah, itinéraire d'un monstre",
+            "videoURL": "https://www.youtube.com/watch?v=JU02karFj_A"
+          },
+          {
+            "title": "Le parcours d'un roi - Le Maroc de Mohammed VI",
+            "videoURL": "https://www.youtube.com/watch?v=IIMNl3Qr5rE"
+          },
+          {
+            "title": "L'assaut contre Mohamed Merah",
+            "videoURL": "https://www.youtube.com/watch?v=AFqN99Oygbg"
+          },
+          {
+            "title": "Faites entrer l'accusé : Merah, la traque",
+            "videoURL": "https://www.youtube.com/watch?v=rCKDTnL93cA"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Faites entrer l'accusé : Merah, la traque",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=rCKDTnL93cA",
+        "views": "1 751 630 vues",
+        "comments": "7891",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Faites entrer l'accusé : Khaled Kelkal, l'ennemi public numéro 1",
+            "videoURL": "https://www.youtube.com/watch?v=DS9E8FZ9wkQ"
+          },
+          {
+            "title": "Kadhafi, notre meilleur ennemi - Documentaire Complet - 90 minutes - HD",
+            "videoURL": "https://www.youtube.com/watch?v=g2XQAPvI7Ls"
+          },
+          {
+            "title": "TOP 10 des VILLES les plus PEUPLÉES du monde! Découvrez le classement 2025",
+            "videoURL": "https://www.youtube.com/watch?v=JQ71gMHD71Q"
+          },
+          {
+            "title": "[GMK] QU’EST CE QUE JE FAIS DANS LA VIE   !! COMBIEN JE DÉPENSE     !!",
+            "videoURL": "https://www.youtube.com/watch?v=Ff7cxAc2xtA"
+          },
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "TOP 10 des VILLES les plus PEUPLÉES du monde! Découvrez le classement 2025",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=JQ71gMHD71Q",
+        "views": "6 vues",
+        "comments": "0",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Allocution du Président de la République Emmanuel Macron du jeudi 5 décembre 2024",
+            "videoURL": "https://www.youtube.com/watch?v=rhg07iAPdHg"
+          },
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          },
+          {
+            "title": "Tokyo | La culture urbaine de demain | ARTE",
+            "videoURL": "https://www.youtube.com/watch?v=j-Yhoj-iibw"
+          },
+          {
+            "title": "Intégrer la fonction publique : le calendrier 2025",
+            "videoURL": "https://www.youtube.com/watch?v=c3bjr-alNWc"
+          },
+          {
+            "title": "On teste des lieux notés 1 étoile ! (En Pologne 🇵🇱)   ",
+            "videoURL": "https://www.youtube.com/watch?v=h4fwCvsFE8Y"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Le processus de réparation, de restauration et de remise à neuf d'une Jaguar S-Type V6 classique",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=u5VcbrulGOo",
+        "views": "394 838 vues",
+        "comments": "238",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "T'AS 5 MINUTES : LA FERRARI F50 (la mal aimée)",
+            "videoURL": "https://www.youtube.com/watch?v=hC5FNxTT4y0"
+          },
+          {
+            "title": "Le simple garçon qui a créé Mercedes-Benz",
+            "videoURL": "https://www.youtube.com/watch?v=xPjg42AUwCY"
+          },
+          {
+            "title": "Resurrecting Luxury: The Mercedes 450 SEL Restoration by Alcalà Technology",
+            "videoURL": "https://www.youtube.com/watch?v=L4oaWNyI1hw"
+          },
+          {
+            "title": "Maintenance And Restoration Process For 2004 Audi A6 | Full Details Of Repair In 40 Minutes Video",
+            "videoURL": "https://www.youtube.com/watch?v=kC_EGjYCrhg"
+          },
+          {
+            "title": "Autour de la route des fromages d'Auvergne : Une boucle auvergnate magnifique !!!!",
+            "videoURL": "https://www.youtube.com/watch?v=O6iM9PJJ27A"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Autour de la route des fromages d'Auvergne : Une boucle auvergnate magnifique !!!!",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=O6iM9PJJ27A",
+        "views": "94 vues",
+        "comments": "11",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Ford Galaxie, 1962...",
+            "videoURL": "https://www.youtube.com/watch?v=dtGEOPv6A2s"
+          },
+          {
+            "title": "En route vers Salers en passant au Pas de Peyrol - Magnifique balade et panoramas Auvergnats   ",
+            "videoURL": "https://www.youtube.com/watch?v=MlTUb6jj3c4"
+          },
+          {
+            "title": "Cap Frehel Road trip Bretagne",
+            "videoURL": "https://www.youtube.com/watch?v=7ERPCQNHTYk"
+          },
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          },
+          {
+            "title": "On teste des lieux notés 1 étoile ! (En Pologne 🇵🇱)   ",
+            "videoURL": "https://www.youtube.com/watch?v=h4fwCvsFE8Y"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "T'AS 5 MINUTES : LA FERRARI F50 (la mal aimée)",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=hC5FNxTT4y0",
+        "views": "34 091 vues",
+        "comments": "11",
+        "watchTime": 9,
+        "recommendations": [
+          {
+            "title": "Essai Lamborghini Huracan STO : ASSOMMANTE",
+            "videoURL": "https://www.youtube.com/watch?v=k7xKlbYctIE&t=5s"
+          },
+          {
+            "title": "Vintage Mecanic S09E12 AC Cobra",
+            "videoURL": "https://www.youtube.com/watch?v=MR-j9TUhECw"
+          },
+          {
+            "title": "CETTE GRENOUILLE ME TERRIFIE (Liminalcore demo)",
+            "videoURL": "https://www.youtube.com/watch?v=m8ZbigLz5sk"
+          },
+          {
+            "title": "VINTAGE MECANIC : ASTON MARTIN V8 VOLANTE",
+            "videoURL": "https://www.youtube.com/watch?v=0JuvUDbz2aU"
+          },
+          {
+            "title": "\n            On teste des lieux notés 1 étoile ! (En Pologne 🇵🇱)   \n          ",
+            "videoURL": "https://www.youtube.com/watch?v=h4fwCvsFE8Y"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "La Corée du Nord d'Afrique",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=_2bgLV1s6aI&t=1s",
+        "views": "393 093 vues",
+        "comments": "228",
+        "watchTime": 6,
+        "recommendations": [
+          {
+            "title": "Pourquoi l’Éthiopie n’a jamais été colonisée ?",
+            "videoURL": "https://www.youtube.com/watch?v=hFHKDPwkHcc"
+          },
+          {
+            "title": "Nissan Juke NISMO RS : mieux que la CLIO RS ?",
+            "videoURL": "https://www.youtube.com/watch?v=E2kMVzdXjpU"
+          },
+          {
+            "title": "La véritable histoire de Kim Jong-un",
+            "videoURL": "https://www.youtube.com/watch?v=36vUJDTXqEY"
+          },
+          {
+            "title": "L'Histoire d'un des PIRES Dictateurs du 21e Siècle !",
+            "videoURL": "https://www.youtube.com/watch?v=w6nmhFEhffM"
+          },
+          {
+            "title": "Le parcours d'un roi - Le Maroc de Mohammed VI",
+            "videoURL": "https://www.youtube.com/watch?v=IIMNl3Qr5rE"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Pourquoi l’Éthiopie n’a jamais été colonisée ?",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=hFHKDPwkHcc",
+        "views": "989 345 vues",
+        "comments": null,
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "J’arrête les blagues à risque - Haroun",
+            "videoURL": "https://www.youtube.com/watch?v=X9M3AZnGzfE"
+          },
+          {
+            "title": "Comment les européens se sont partagé l'Afrique ?",
+            "videoURL": "https://www.youtube.com/watch?v=MLVeGVzGZWg"
+          },
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          },
+          {
+            "title": "Fidel Castro - La montée au pouvoir du père de la Révolution cubaine en pleine Guerre froide",
+            "videoURL": "https://www.youtube.com/watch?v=kgqoZ_b5Il0"
+          },
+          {
+            "title": "[GMK] QU’EST CE QUE JE FAIS DANS LA VIE   !! COMBIEN JE DÉPENSE     !!",
+            "videoURL": "https://www.youtube.com/watch?v=Ff7cxAc2xtA"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "J’arrête les blagues à risque - Haroun",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=X9M3AZnGzfE",
+        "views": "146 417 vues",
+        "comments": "1009",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "QUAND LES FESTIVALS TOURNENT MAL...",
+            "videoURL": "https://www.youtube.com/watch?v=8X0MgfRPosA"
+          },
+          {
+            "title": "LIL DURK risque la PRISON À VIE ou la peine de M*RT (Explication de l'affaire)",
+            "videoURL": "https://www.youtube.com/watch?v=aQnebZsAt7Y"
+          },
+          {
+            "title": "AKIM OMIRI dans \"FRAGMENT(S)\" Spectacle Intégral !",
+            "videoURL": "https://www.youtube.com/watch?v=ZvWMyp7im7o"
+          },
+          {
+            "title": "Djamil Le Shlag - 1er Round - Spectacle entier",
+            "videoURL": "https://www.youtube.com/watch?v=vN_Xt1xeySg"
+          },
+          {
+            "title": "Caroline Marx a sa propre manière de se changer !   ",
+            "videoURL": "https://www.youtube.com/watch?v=ENHvZcohJkY&t=7s"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Nissan Juke NISMO RS : mieux que la CLIO RS ?",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=E2kMVzdXjpU",
+        "views": "184 413 vues",
+        "comments": "523",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "[GMK] QU’EST CE QUE JE FAIS DANS LA VIE   !! COMBIEN JE DÉPENSE     !!",
+            "videoURL": "https://www.youtube.com/watch?v=Ff7cxAc2xtA"
+          },
+          {
+            "title": "THE TRUTH ABOUT MY PORSCHE GT3RS THAT WENT SWIMMING",
+            "videoURL": "https://www.youtube.com/watch?v=Cy_Bq_Df7M0"
+          },
+          {
+            "title": "Développement Rallye - Sarrazin Motorsport - C3 Rally2",
+            "videoURL": "https://www.youtube.com/watch?v=HB0m1zOQjsI"
+          },
+          {
+            "title": "On détermine les causes de l'accident",
+            "videoURL": "https://www.youtube.com/watch?v=ELr1dsoPvHc"
+          },
+          {
+            "title": "Une pilule pour vivre 150 ans ?",
+            "videoURL": "https://www.youtube.com/watch?v=TmjIb2v1B-k"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Mon Pote Achète sa PORSCHE de Rêve    Carrera GT STRAIGHT PIPE + Livraison 911 S/T !!",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=GWGz1G9HDCQ",
+        "views": "83 397 vues",
+        "comments": "113",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Vintage Mecanic S09E14 Peugeot 604 Limousine",
+            "videoURL": "https://www.youtube.com/watch?v=U9ZO2b3aCF0"
+          },
+          {
+            "title": "I BOUGHT A WRECKED ASTON MARTIN DB12 THEN REBUILT IT IN 24 HOURS",
+            "videoURL": "https://www.youtube.com/watch?v=LySKmMpWsQY"
+          },
+          {
+            "title": "pack arbres et bientot je ferai un pack rond point legion square",
+            "videoURL": "https://www.youtube.com/watch?v=33RCxgwvzOY"
+          },
+          {
+            "title": "[GMK] QU’EST CE QUE JE FAIS DANS LA VIE   !! COMBIEN JE DÉPENSE     !!",
+            "videoURL": "https://www.youtube.com/watch?v=Ff7cxAc2xtA"
+          },
+          {
+            "title": "FULL TOUR of My $30 MILLION Hyper & Super Car Collection 3.0!",
+            "videoURL": "https://www.youtube.com/watch?v=Wyq-GUmzelo"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "7 super montres à moins de 500 € !",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=YUgB-Zewe28",
+        "views": "158 732 vues",
+        "comments": "113",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "8 MONTRES À MOINS DE 400€",
+            "videoURL": "https://www.youtube.com/watch?v=5E0BEtaq35Y"
+          },
+          {
+            "title": "#selection - 8 MONTRES AUTOMATIQUES ABORDABLES chez Horel !",
+            "videoURL": "https://www.youtube.com/watch?v=9vjg0jaU12A"
+          },
+          {
+            "title": "F1 24 Carrière Isack Hadjar S2 E10 - Encore un GP sous la pluie !",
+            "videoURL": "https://www.youtube.com/watch?v=OOYHhWX8XGw"
+          },
+          {
+            "title": "Nicolas Ducoudert nous présente la collection de montres Beaubleu ECCE",
+            "videoURL": "https://www.youtube.com/watch?v=IhEU1CfNQbs"
+          },
+          {
+            "title": "Allocution du Président de la République Emmanuel Macron du jeudi 5 décembre 2024",
+            "videoURL": "https://www.youtube.com/watch?v=rhg07iAPdHg"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "Comment un pauvre garçon a construit Hyundai",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=WVbYYvSy0WU",
+        "views": "119 005 vues",
+        "comments": "247",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "La véritable histoire d'Elon Musk",
+            "videoURL": "https://www.youtube.com/watch?v=0UBUJZ9VdbA"
+          },
+          {
+            "title": "L’histoire du plus grand génie de notre ère : Einstein",
+            "videoURL": "https://www.youtube.com/watch?v=DxG1jmWZClk"
+          },
+          {
+            "title": "La véritable histoire de Donald Trump",
+            "videoURL": "https://www.youtube.com/watch?v=HASq88dGIGk"
+          },
+          {
+            "title": "L'art de devenir l'homme le plus riche du monde - Bernard Arnault",
+            "videoURL": "https://www.youtube.com/watch?v=AcIUYyY2Kkk"
+          },
+          {
+            "title": "Le hacker devenu millionnaire en truquant la loterie",
+            "videoURL": "https://www.youtube.com/watch?v=W5ThRimqb2U"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "La véritable histoire d'Elon Musk",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=0UBUJZ9VdbA",
+        "views": "2 433 064 vues",
+        "comments": "1080",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "La véritable histoire de Vladimir Poutine",
+            "videoURL": "https://www.youtube.com/watch?v=wfpAhIWLEzE"
+          },
+          {
+            "title": "La véritable histoire de Jeff Bezos",
+            "videoURL": "https://www.youtube.com/watch?v=kw7bpnrDblM"
+          },
+          {
+            "title": "Le parcours d'un roi - Le Maroc de Mohammed VI",
+            "videoURL": "https://www.youtube.com/watch?v=IIMNl3Qr5rE"
+          },
+          {
+            "title": "Le monde selon Elon Musk | ARTE",
+            "videoURL": "https://www.youtube.com/watch?v=p5ln5NqJd_Y"
+          },
+          {
+            "title": "QUE FAUT-IL SAVOIR AVANT D'ACHETER UNE LAMBORGHINI GALLARDO ?",
+            "videoURL": "https://www.youtube.com/watch?v=cAtkIfoT5xQ"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "La véritable histoire de Jeff Bezos",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=kw7bpnrDblM",
+        "views": "871 522 vues",
+        "comments": "1080",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "DZ MAFIA, l'histoire complète d'un cartel \"Made in France\" ! (MARSEILLE)",
+            "videoURL": "https://www.youtube.com/watch?v=NuLF4KLQp00"
+          },
+          {
+            "title": "Kadhafi, mort ou vif - Documentaire Complet - 52 minutes - HD",
+            "videoURL": "https://www.youtube.com/watch?v=NvycDLquPXw"
+          },
+          {
+            "title": "Demain le Sport",
+            "videoURL": "https://www.youtube.com/watch?v=bWM7f_F7LJM"
+          },
+          {
+            "title": "Swap Citroën AX / Voiturette de golf",
+            "videoURL": "https://www.youtube.com/watch?v=SHpzEcXkhEo"
+          },
+          {
+            "title": "Conférence Avocat d'affaires : entre mythes et réalités",
+            "videoURL": "https://www.youtube.com/watch?v=m3BbWrhFKnE"
+          }
+        ]
+      },
+      {
+        "sessionID": "1733442962456",
+        "type": "watchedVideo",
+        "title": "[GMK] QU’EST CE QUE JE FAIS DANS LA VIE   !! COMBIEN JE DÉPENSE     !!",
+        "channel": "TF1 INFO",
+        "channelURL": "https://www.youtube.com/@TF1INFO",
+        "videoURL": "https://www.youtube.com/watch?v=Ff7cxAc2xtA",
+        "views": "1 031 803 vues",
+        "comments": "503",
+        "watchTime": 0,
+        "recommendations": [
+          {
+            "title": "Qui Trouvera la Pizza la plus chère ? Avec @nicotine84 & @nicocolombien (Y’a des surprises)",
+            "videoURL": "https://www.youtube.com/watch?v=co117JaBZSE"
+          },
+          {
+            "title": "Essai Lamborghini Huracan STO : ASSOMMANTE",
+            "videoURL": "https://www.youtube.com/watch?v=k7xKlbYctIE&t=5s"
+          },
+          {
+            "title": "PORSCHE REFUSED TO SELL ME A GT3RS - FULL MOVIE",
+            "videoURL": "https://www.youtube.com/watch?v=sohjnE-8Vug"
+          },
+          {
+            "title": "Conférence de presse DTR Fight ( c’est tendu !)",
+            "videoURL": "https://www.youtube.com/watch?v=J23bYQPUmNY"
+          },
+          {
+            "title": "Mes parents m'ont poussé a rejoindre un secte",
+            "videoURL": "https://www.youtube.com/watch?v=MljqEun4KgM"
+          }
+        ]
+      }
+    ],
+    "homePageRecommendations": []
+  }

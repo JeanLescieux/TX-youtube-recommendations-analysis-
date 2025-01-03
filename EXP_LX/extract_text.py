@@ -9,7 +9,7 @@ def get_youtube_transcript(video_id):
         transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
         
         # Obtenir le premier transcript disponible (anglais ou français)
-        first_transcript = transcript_list.find_transcript(['en', 'fr'])
+        first_transcript = transcript_list.find_transcript(['en-GB', 'fr'])
         
         # Récupérer les sous-titres
         transcript = first_transcript.fetch()
@@ -60,8 +60,7 @@ def process_multiple_videos(video_ids, output_dir):
 # Exemple d'utilisation
 if __name__ == "__main__":
     # Liste des IDs de vidéos YouTube à traiter
-    video_ids = ['qeW5gihGrWU']  # Remplacez par vos propres IDs de vidéos
-    
+    video_ids = ['BJoipvWDGME']  # Remplacez par vos propres IDs de vidéos
     # Dossier de sortie pour les fichiers JSON
     output_dir = 'transcript'
     
