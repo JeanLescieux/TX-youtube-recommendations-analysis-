@@ -77,7 +77,7 @@ def classify_video(video_url):
 
 # Exemple d'utilisation
 if __name__ == "__main__":
-    video_url = 'https://www.youtube.com/watch?v=d446WeSFDck'
+    video_url = 'https://www.youtube.com/watch?v=u5VcbrulGOo'
     result = classify_video(video_url)
     
     if result is not None:
