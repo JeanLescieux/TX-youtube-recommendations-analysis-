@@ -132,8 +132,9 @@ def build_interactive_graph(data: dict, model, output_file="videos_graph.html"):
         "automobile": "#7f7f7f"
     }
     default_color = "#ffffff"
-    existing_nodes = set()
+    existing_nodes = {}
 
+    # Étape 1 : Ajouter tous les nœuds
     for video in data.get("watchedVideos", []):
         video_url = video.get("videoURL", "")
         video_id = video_url.split("v=")[-1].split('&')[0]
@@ -141,76 +142,71 @@ def build_interactive_graph(data: dict, model, output_file="videos_graph.html"):
         views = clean_views(video.get("views", 0))
         video_type = classify_video(video_url, model)
 
-        if video_type is None:
-            node_color = default_color
-            node_label_type = "Sans sous-titres"
-        else:
-            node_color = color_mapping.get(video_type, default_color)
-            node_label_type = video_type.capitalize()
-
-        # Calcul de la taille du nœud
+        node_color = color_mapping.get(video_type, default_color)
+        node_label_type = video_type.capitalize() if video_type else "Sans sous-titres"
         node_size = compute_node_size(views)
+        node_shape = "dot"
 
-        # Si views == 0 => forme "diamond", sinon "dot"
-        node_shape = "diamond" if views == 0 else "dot"
+        existing_nodes[video_id] = {
+            "size": node_size,
+            "color": node_color,
+            "shape": node_shape,
+            "label": video.get("title", f"Video {video_id}"),
+            "title": (f"<b>{video.get('title', '')}</b><br>Type : {node_label_type}<br>Vues : {views}"),
+            "url": video_url
+        }
 
-        if video_id not in existing_nodes:
-            net.add_node(
-                video_id,
-                label=video.get("title", f"Video {video_id}"),
-                title=(
-                    f"<b>{video.get('title', '')}</b>"
-                    f"<br>Type : {node_label_type}"
-                    f"<br>Vues : {views}"
-                ),
-                size=node_size,
-                color=node_color,
-                shape=node_shape,
-                url=video_url
-            )
-            existing_nodes.add(video_id)
-
-        # Recommandations
+        # Ajouter les vidéos recommandées comme nœuds
         for rec in video.get("recommendations", []):
             rec_url = rec.get("videoURL", "")
             rec_id = rec_url.split("v=")[-1].split('&')[0]
 
+            rec_views = clean_views(rec.get("views", 0))
             rec_type = classify_video(rec_url, model)
-            rec_views = 0  # Souvent, pas de "views" pour recommandations
-            rec_color = default_color
-            rec_label_type = "Sans sous-titres"
 
-            if rec_type is not None:
-                rec_color = color_mapping.get(rec_type, default_color)
-                rec_label_type = rec_type.capitalize()
-
-            # Taille pour les recommandations (0 = "pas de vues")
+            rec_color = color_mapping.get(rec_type, default_color)
+            rec_label_type = rec_type.capitalize() if rec_type else "Sans sous-titres"
             rec_size = compute_node_size(rec_views)
-            # Forme diamond si 0 vues
-            rec_shape = "diamond" if rec_views == 0 else "dot"
+            rec_shape = "dot" if rec_views > 0 else "diamond"
 
             if rec_id not in existing_nodes:
-                net.add_node(
-                    rec_id,
-                    label=rec.get("title", f"Video {rec_id}"),
-                    title=(
-                        f"<b>{rec.get('title', '')}</b>"
-                        f"<br>Type : {rec_label_type}"
-                    ),
-                    size=rec_size,
-                    color=rec_color,
-                    shape=rec_shape,
-                    url=rec_url
-                )
-                existing_nodes.add(rec_id)
+                existing_nodes[rec_id] = {
+                    "size": rec_size,
+                    "color": rec_color,
+                    "shape": rec_shape,
+                    "label": rec.get("title", f"Video {rec_id}"),
+                    "title": (f"<b>{rec.get('title', '')}</b><br>Type : {rec_label_type}<br>Vues : {rec_views}"),
+                    "url": rec_url
+                }
 
-            net.add_edge(video_id, rec_id, color="#aaaaaa", width=1, arrowStrikethrough=False)
+    # Ajouter tous les nœuds au graphe
+    for node_id, node_props in existing_nodes.items():
+        net.add_node(
+            node_id,
+            label=node_props["label"],
+            title=node_props["title"],
+            size=node_props["size"],
+            color=node_props["color"],
+            shape=node_props["shape"],
+            url=node_props["url"]
+        )
+
+    # Étape 2 : Ajouter toutes les arêtes
+    for video in data.get("watchedVideos", []):
+        video_id = video.get("videoURL", "").split("v=")[-1].split('&')[0]
+
+        for rec in video.get("recommendations", []):
+            rec_id = rec.get("videoURL", "").split("v=")[-1].split('&')[0]
+
+            if video_id in existing_nodes and rec_id in existing_nodes:
+                net.add_edge(video_id, rec_id, color="#aaaaaa", width=1)
 
     try:
         net.write_html(output_file)
         print(f"Graphe généré : {output_file}")
     except Exception as e:
         print(f"Erreur lors de la génération du graphe : {e}")
+
 
 # ------------------------------------------------------------------
 #          Main script : chargement JSON, modèle, exécution
